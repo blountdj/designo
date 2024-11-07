@@ -73,10 +73,14 @@ export const locationsIntroInit = (container) => {
         xPercent: -15
     })
 
+    // Add Hover Effects
+    addBorderAnimation(canadaMain, canadaMap);
+    addBorderAnimation(australiaMain, australiaMap);
+    addBorderAnimation(ukMain, ukMap);
 }
 
 
-export const locationsIntroAnimation = () => {
+export const locationsIntroAnimation = (container) => {
     console.log('locationsIntroAnimation')
     gsap.timeline()
     .add(gsap.set('.intro-overlay', {autoAlpha: 0}), 0)
@@ -113,3 +117,68 @@ export const locationsIntroAnimation = () => {
     .add(() => xPercentOpacityReturn('.location_text_wrapper.is-uk > .locations_addresses_wrapper'), 2.5)
     .add(() => yPercentOpacityReturn('.location_text_wrapper.is-uk > .locations_addresses_wrapper'), 2.5) 
 }
+
+
+/* Hover Animations */
+function addBorderAnimation(mainElement, mapElement) {
+    const computedStyle = window.getComputedStyle(mapElement);
+    const borderRadius = parseInt(computedStyle.borderRadius) || 0;
+    
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.classList.add('border-svg');
+    
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.classList.add('border-path');
+    
+    svg.appendChild(path);
+    mapElement.style.position = 'relative';
+    mapElement.appendChild(svg);
+  
+    function updatePath() {
+      const width = mapElement.offsetWidth;
+      const height = mapElement.offsetHeight;
+      
+      // Adjust the path to be slightly inset to prevent edge overflow
+      const strokeWidth = 2; // Match this with CSS stroke-width
+      const offset = strokeWidth / 2;
+      const adjustedRadius = Math.max(0, borderRadius - offset);
+      
+      // Create path with adjusted coordinates
+      const pathData = `
+        M ${borderRadius} ${offset}
+        H ${width - borderRadius}
+        Q ${width - offset} ${offset}, ${width - offset} ${borderRadius}
+        V ${height - borderRadius}
+        Q ${width - offset} ${height - offset}, ${width - borderRadius} ${height - offset}
+        H ${borderRadius}
+        Q ${offset} ${height - offset}, ${offset} ${height - borderRadius}
+        V ${borderRadius}
+        Q ${offset} ${offset}, ${borderRadius} ${offset}
+      `;
+      
+      path.setAttribute('d', pathData);
+      
+      const pathLength = path.getTotalLength();
+      path.style.strokeDasharray = pathLength;
+      path.style.strokeDashoffset = pathLength;
+      
+      const tl = gsap.timeline({ paused: true });
+      
+      tl.to(path, {
+        strokeDashoffset: 0,
+        duration: 0.8,
+        ease: 'none'
+      });
+  
+      mainElement.addEventListener('mouseenter', () => tl.play());
+      mainElement.addEventListener('mouseleave', () => tl.reverse());
+    }
+  
+    updatePath();
+    window.addEventListener('resize', updatePath);
+  }
+  
+
+
+
+

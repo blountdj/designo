@@ -7,6 +7,11 @@ div.webdesign_main_card:hover img.image-6 {
 }
 
 
-img.image-6 {
+img.image-6, .webdesign_main_h2, .webdesign_main_card_text {
 	transition: transform 0.3s ease-in-out;
+}
+
+div.webdesign_main_card:hover .webdesign_main_h2, 
+div.webdesign_main_card:hover .webdesign_main_card_text {
+	color: white;
 }

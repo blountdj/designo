@@ -1,0 +1,19 @@
+.border-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .border-path {
+    fill: none;
+    stroke: var(--primary-peach); /* Border color */
+    stroke-width: 2px;
+    stroke-linecap: round; /* Smooths the corners */
+    stroke-linejoin: round; /* Smooths the corners */
+    /* Prevent corner overlaps */
+    paint-order: stroke;
+    stroke-miterlimit: 1;
+  }

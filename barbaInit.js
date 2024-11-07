@@ -172,7 +172,7 @@ const locationBtnsJsFileUrl = `http://127.0.0.1:5500/location-btns.js`
 const designJsFileUrl = `http://127.0.0.1:5500/designAnimations.js`
 
 const designCssFileUrl = `http://127.0.0.1:5500/design.css`
-
+const locationsCssFileUrl = `http://127.0.0.1:5500/locations.css`
 // const pageSpecificScriptUrl = `https://cdn.jsdelivr.net/gh/blountdj/arch-studio@v1/home.js`
 
 
@@ -180,14 +180,24 @@ barba.hooks.afterEnter((data) => {
     // console.log('barba.hooks.afterEnter')
     const currentPageId = data.current.namespace;
     const nextPageId = data.next.namespace; // Assuming your container has an ID that matches the page
-    // console.log('currentPageId:', currentPageId)
+    console.log('currentPageId:', currentPageId)
+    console.log('nextPageId:', nextPageId)
+    console.log(nextPageId.includes('design') && !currentPageId.includes('design'))
         
     nextPageId === 'home' ? addScriptsToBody([homeJsFileUrl]) : removeScriptsFromBody([homeJsFileUrl])
     nextPageId === 'locations' ? addScriptsToBody([locationsJsFileUrl]) : removeScriptsFromBody([locationsJsFileUrl])
+    nextPageId === 'locations' ? addFilesCssToBody([locationsCssFileUrl]) : removeCssFilesFromBody([locationsCssFileUrl])
     nextPageId === 'about' ? addScriptsToBody([aboutJsFileUrl]) : removeScriptsFromBody([aboutJsFileUrl])
     nextPageId === 'contact' ? addScriptsToBody([contactFormJsFileUrl, locationBtnsJsFileUrl, contactJsFileUrl]) : removeScriptsFromBody([contactFormJsFileUrl, locationBtnsJsFileUrl, contactJsFileUrl])
-    nextPageId.includes('design') && !currentPageId.includes('design') ? addScriptsToBody([designJsFileUrl]) : removeScriptsFromBody([designJsFileUrl])
-    nextPageId.includes('design') && !currentPageId.includes('design') ? addFilesCssToBody([designCssFileUrl]) : removeCssFilesFromBody([designCssFileUrl])
+    // nextPageId.includes('design') && !currentPageId.includes('design') ? addScriptsToBody([designJsFileUrl]) : removeScriptsFromBody([designJsFileUrl])
+    // nextPageId.includes('design') && !currentPageId.includes('design') ? addFilesCssToBody([designCssFileUrl]) : removeCssFilesFromBody([designCssFileUrl])
+    if (nextPageId.includes('design') && !currentPageId.includes('design')) {
+        addScriptsToBody([designJsFileUrl]);
+        addFilesCssToBody([designCssFileUrl]);
+    } else if (currentPageId.includes('design') && !nextPageId.includes('design')) {
+        removeScriptsFromBody([designJsFileUrl]);
+        removeCssFilesFromBody([designCssFileUrl]);
+    }
 });
 
 
