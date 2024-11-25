@@ -2,7 +2,7 @@
 
 import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v6/config.js";
 
-import { 
+const { 
     introLogoFadeIn, 
     navBarLinksFadeIn, 
     xPercentOpacityReturn, 
@@ -10,7 +10,7 @@ import {
     animationColumnsEnter,
     scaleTo1,
     transitionAnimationReset
-} from await import(`${CONFIG.path}commonAnimations.js`)
+} = await import(`${CONFIG.path}commonAnimations.js`)
 
 
 export const homeIntroInit = (container) => {

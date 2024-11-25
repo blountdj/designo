@@ -1,13 +1,13 @@
 // console.log('locationsAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v6/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v7/config.js";
 
-import { 
+const { 
     navBarLinksFadeIn, 
     xPercentOpacityReturn, 
     yPercentOpacityReturn, 
     animationColumnsLeave 
-} from await import(`${CONFIG.path}commonAnimations.js`)
+} = await import(`${CONFIG.path}commonAnimations.js`)
 
 export const locationsIntroInit = (container) => {
     // console.log('locationsIntroInit')
