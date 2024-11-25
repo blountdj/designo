@@ -1,6 +1,6 @@
 // console.log('contactAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v5/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v6/config.js";
 
 import { 
     navBarLinksFadeIn, 
@@ -10,7 +10,7 @@ import {
     xPercentOpacityReturnStaggered,
     yPercentOpacityReturnStaggered,
     transitionAnimationReset,
-} from CONFIG.path + 'commonAnimations.js';
+} from await import(`${CONFIG.path}commonAnimations.js`)
 
 
 export const contactIntroInit = () => {
