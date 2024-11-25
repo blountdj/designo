@@ -1,6 +1,6 @@
 // console.log('homeAnimations.js')
 
-import { path } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v4/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v4/config.js";
 
 import { 
     introLogoFadeIn, 
@@ -10,7 +10,7 @@ import {
     animationColumnsEnter,
     scaleTo1,
     transitionAnimationReset
-} from path + 'commonAnimations.js';
+} from CONFIG.path + 'commonAnimations.js';
 
 
 export const homeIntroInit = (container) => {

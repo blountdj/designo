@@ -1,17 +1,17 @@
 // console.log('barbaInit.js loaded')
 
 // import { CONFIG } from "./config.js";
-import { CONFIG, path } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v4/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v4/config.js";
 
-import { contactFormInit } from path + 'contact-form.js';
-import { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } from path + 'homeAnimations.js';
-import { aboutIntroInit, aboutIntroAnimation } from path + 'aboutAnimations.js';
-import { locationsIntroInit, locationsIntroAnimation } from path + 'locationsAnimations.js';
-import { contactIntroInit, contactIntroAnimation } from path + 'contactAnimations.js';
-import { graphicDesignIntroInit, graphicDesignIntroAnimation } from path + 'graphicDesignAnimations.js';
-import { webDesignIntroInit, webDesignIntroAnimation } from path + 'webDesignAnimations.js';
-import { appDesignIntroInit, appDesignIntroAnimation } from path + 'appDesignAnimations.js';
-import { locationBtnsInit } from path + 'location-btns.js';
+import { contactFormInit } from CONFIG.path + 'contact-form.js';
+import { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } from CONFIG.path + 'homeAnimations.js';
+import { aboutIntroInit, aboutIntroAnimation } from CONFIG.path + 'aboutAnimations.js';
+import { locationsIntroInit, locationsIntroAnimation } from CONFIG.path + 'locationsAnimations.js';
+import { contactIntroInit, contactIntroAnimation } from CONFIG.path + 'contactAnimations.js';
+import { graphicDesignIntroInit, graphicDesignIntroAnimation } from CONFIG.path + 'graphicDesignAnimations.js';
+import { webDesignIntroInit, webDesignIntroAnimation } from CONFIG.path + 'webDesignAnimations.js';
+import { appDesignIntroInit, appDesignIntroAnimation } from CONFIG.path + 'appDesignAnimations.js';
+import { locationBtnsInit } from CONFIG.path + 'location-btns.js';
 
 import {
     // textSplit,
@@ -19,24 +19,24 @@ import {
     addScriptsToBody,
     addFilesCssToBody,
     removeCssFilesFromBody
-} from path + 'utilities.js';
+} from CONFIG.path + 'utilities.js';
 
 
 import {
     introOverlayFadeIn,
     animationColumnsEnter,
     // transitionAnimationReset
-} from path + 'commonAnimations.js';
+} from CONFIG.path + 'commonAnimations.js';
 
 
-const homeJsFileUrl = path + 'homeAnimations.js'
-const aboutJsFileUrl = path + 'aboutAnimations.js'
-const locationsJsFileUrl = path + 'locationsAnimations.js'
-const contactJsFileUrl = path + 'contactAnimations.js'
-const locationBtnsJsFileUrl = path + 'location-btns.js'
-const designJsFileUrl = path + 'designAnimations.js'
-const designCssFileUrl = path + 'design.css'
-const locationsCssFileUrl = path + 'locations.css'
+const homeJsFileUrl = CONFIG.path + 'homeAnimations.js'
+const aboutJsFileUrl = CONFIG.path + 'aboutAnimations.js'
+const locationsJsFileUrl = CONFIG.path + 'locationsAnimations.js'
+const contactJsFileUrl = CONFIG.path + 'contactAnimations.js'
+const locationBtnsJsFileUrl = CONFIG.path + 'location-btns.js'
+const designJsFileUrl = CONFIG.path + 'designAnimations.js'
+const designCssFileUrl = CONFIG.path + 'design.css'
+const locationsCssFileUrl = CONFIG.path + 'locations.css'
 
 
 barba.hooks.beforeEnter(async (data) => {

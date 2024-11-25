@@ -1,6 +1,6 @@
 // console.log('aboutAnimations.js')
 
-import { path } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v4/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v4/config.js";
 
 import {
     navBarLinksFadeIn,
@@ -12,7 +12,7 @@ import {
     transitionAnimationReset,
     fadeIn
 // } from './commonAnimations.js'
-} from path + 'commonAnimations.js'
+} from CONFIG.path + 'commonAnimations.js'
 
 
 export const aboutIntroInit = (container) => {
