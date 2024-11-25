@@ -1,11 +1,11 @@
 // console.log('contactAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v7/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v8/config.js";
 
-const { 
-    navBarLinksFadeIn, 
-    xPercentOpacityReturn, 
-    yPercentOpacityReturn, 
+const {
+    navBarLinksFadeIn,
+    xPercentOpacityReturn,
+    yPercentOpacityReturn,
     scaleTo1,
     xPercentOpacityReturnStaggered,
     yPercentOpacityReturnStaggered,
@@ -15,12 +15,12 @@ const {
 
 export const contactIntroInit = () => {
     // console.log('contactIntroInit')
-    
+
     /* Nav Bar */
     const navBarLinks = document.querySelectorAll('.nav-link')
     const navBarLogo = document.querySelector('.link-block > img')
     const navBar = document.querySelector('div.navbar.w-nav')
-    
+
     /* Hero Section */
     const heroSection = document.querySelector('.contact_section_hero')
     const heroH1 = document.querySelector('.contact-h1')
@@ -28,13 +28,13 @@ export const contactIntroInit = () => {
     const heroBgCircle = document.querySelector('.contact-hero-circle')
     const heroFormInputs = document.querySelectorAll('#contact-form > .input-wrapper')
     const heroFormBtn = document.querySelector('#contact-form > .btn-wrapper')
-    
+
     /* Locations */
     const designElems = document.querySelectorAll('.about-attributes-card')
 
-    gsap.set([heroSection], {scale: 3.5})
+    gsap.set([heroSection], { scale: 3.5 })
 
-    gsap.set([heroH1, heroParagraph, heroBgCircle,  navBarLinks, navBarLogo,
+    gsap.set([heroH1, heroParagraph, heroBgCircle, navBarLinks, navBarLogo,
         heroFormInputs, heroFormBtn, designElems
     ], {
         opacity: 0,
@@ -71,21 +71,21 @@ export const contactIntroAnimation = () => {
     // console.log('contactIntroAnimation')
     gsap.timeline()
 
-    .add(() => transitionAnimationReset(), 0)
-    .add(() => scaleTo1('.contact_section_hero'), 0)
-    .add(() => navBarLinksFadeIn(), 0.6)
+        .add(() => transitionAnimationReset(), 0)
+        .add(() => scaleTo1('.contact_section_hero'), 0)
+        .add(() => navBarLinksFadeIn(), 0.6)
 
-    .add(gsap.set('div.navbar.w-nav', {opacity: 1, zIndex: 1000}), 1.1)
-    .add(() => yPercentOpacityReturn('.contact-h1'), 1.1)
-    .add(() => xPercentOpacityReturn('.contact-h1'), 1.1)
+        .add(gsap.set('div.navbar.w-nav', { opacity: 1, zIndex: 1000 }), 1.1)
+        .add(() => yPercentOpacityReturn('.contact-h1'), 1.1)
+        .add(() => xPercentOpacityReturn('.contact-h1'), 1.1)
 
-    .add(() => yPercentOpacityReturn('.contact-text'), 1.3)
-    .add(() => xPercentOpacityReturn('.contact-text'), 1.3)
+        .add(() => yPercentOpacityReturn('.contact-text'), 1.3)
+        .add(() => xPercentOpacityReturn('.contact-text'), 1.3)
 
-    .add(() => xPercentOpacityReturn('.contact-hero-circle'), 2)
+        .add(() => xPercentOpacityReturn('.contact-hero-circle'), 2)
 
-    .add(() => yPercentOpacityReturnStaggered(['#contact-form > .input-wrapper', '#contact-form > .btn-wrapper']), 1.5)
-    .add(() => xPercentOpacityReturnStaggered(['#contact-form > .input-wrapper', '#contact-form > .btn-wrapper']), 1.5)
+        .add(() => yPercentOpacityReturnStaggered(['#contact-form > .input-wrapper', '#contact-form > .btn-wrapper']), 1.5)
+        .add(() => xPercentOpacityReturnStaggered(['#contact-form > .input-wrapper', '#contact-form > .btn-wrapper']), 1.5)
 
-    .add(() => yPercentOpacityReturnStaggered('.about-attributes-card'), 2.2)
+        .add(() => yPercentOpacityReturnStaggered('.about-attributes-card'), 2.2)
 }
