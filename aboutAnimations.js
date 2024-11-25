@@ -1,5 +1,7 @@
 // console.log('aboutAnimations.js')
 
+import { path } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v4/config.js";
+
 import {
     navBarLinksFadeIn,
     xPercentOpacityReturn,
@@ -9,7 +11,8 @@ import {
     scaleTo1,
     transitionAnimationReset,
     fadeIn
-} from './commonAnimations.js'
+// } from './commonAnimations.js'
+} from `${ path }/commonAnimations.js`
 
 
 export const aboutIntroInit = (container) => {
@@ -86,5 +89,4 @@ export const aboutIntroAnimation = () => {
         .add(() => xPercentOpacityReturn('.about-worldclass-text'), 2.5 + delay)
 
         .add(() => unMaskToRight('.about-worldclass-mask'), 2.85 + delay)
-
 }

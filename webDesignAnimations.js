@@ -1,5 +1,7 @@
 // console.log('contactAnimations.js')
 
+import { path } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v4/config.js";
+
 import { 
     navBarLinksFadeIn, 
     xPercentOpacityReturn, 
@@ -7,7 +9,7 @@ import {
     scaleTo1,
     yPercentOpacityReturnStaggered,
     transitionAnimationReset
-} from './commonAnimations.js'
+} from `${ path }/commonAnimations.js`
 
 
 export const webDesignIntroInit = (container) => {
@@ -27,7 +29,7 @@ export const webDesignIntroInit = (container) => {
         const heroH1 = container.querySelector('.webdesign-hero-h2')
         const heroParagraph = container.querySelector('.home-talk-text')
 
-        /* CArds */
+        /* Cards */
         const designElems = container.querySelectorAll('.webdesign_main_card')
         const designElemImgs = container.querySelectorAll('img.image-6')
 

@@ -1,5 +1,7 @@
 // console.log('homeAnimations.js')
 
+import { path } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v4/config.js";
+
 import { 
     introLogoFadeIn, 
     navBarLinksFadeIn, 
@@ -8,7 +10,7 @@ import {
     animationColumnsEnter,
     scaleTo1,
     transitionAnimationReset
-} from './commonAnimations.js'
+} from `${ path }/commonAnimations.js`
 
 
 export const homeIntroInit = (container) => {

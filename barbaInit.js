@@ -1,29 +1,42 @@
 // console.log('barbaInit.js loaded')
 
-import { CONFIG } from "./config.js";
-import { contactFormInit } from "./contact-form.js";
-import { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } from "./homeAnimations.js";
-import { aboutIntroInit, aboutIntroAnimation } from "./aboutAnimations.js";
-import { locationsIntroInit, locationsIntroAnimation } from "./locationsAnimations.js";
-import { contactIntroInit, contactIntroAnimation } from "./contactAnimations.js";
-import { graphicDesignIntroInit, graphicDesignIntroAnimation } from "./graphicDesignAnimations.js";
-import { webDesignIntroInit, webDesignIntroAnimation } from "./webDesignAnimations.js";
-import { appDesignIntroInit, appDesignIntroAnimation } from "./appDesignAnimations.js";
-import { 
+// import { CONFIG } from "./config.js";
+import { CONFIG, path } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v4/config.js";
+
+import { contactFormInit } from `${path}/contact-form.js`;
+import { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } from `${path}/homeAnimations.js`;
+import { aboutIntroInit, aboutIntroAnimation } from `${path}/aboutAnimations.js`;
+import { locationsIntroInit, locationsIntroAnimation } from `${ path }/locationsAnimations.js`;
+import { contactIntroInit, contactIntroAnimation } from `${path}/contactAnimations.js`;
+import { graphicDesignIntroInit, graphicDesignIntroAnimation } from `${ path }/graphicDesignAnimations.js`;
+import { webDesignIntroInit, webDesignIntroAnimation } from `${path}/webDesignAnimations.js`;
+import { appDesignIntroInit, appDesignIntroAnimation } from `${ path }/appDesignAnimations.js`;
+import { locationBtnsInit } from `${ path }/location-btns.js`;
+
+import {
     // textSplit,
     removeScriptsFromBody,
     addScriptsToBody,
     addFilesCssToBody,
     removeCssFilesFromBody
-} from "./utilities.js";
+} from `${ path }/utilities.js`;
 
 
-import { 
-    introOverlayFadeIn, 
+import {
+    introOverlayFadeIn,
     animationColumnsEnter,
     // transitionAnimationReset
- } from "./commonAnimations.js";
+} from `${ path }/commonAnimations.js`;
 
+
+const homeJsFileUrl = `${ path }/homeAnimations.js`
+const aboutJsFileUrl = `${ path }/aboutAnimations.js`
+const locationsJsFileUrl = `${ path }/locationsAnimations.js`
+const contactJsFileUrl = `${ path }/contactAnimations.js`
+const locationBtnsJsFileUrl = `${ path }/location-btns.js`
+const designJsFileUrl = `${ path }/designAnimations.js`
+const designCssFileUrl = `${ path }/design.css`
+const locationsCssFileUrl = `${ path }/locations.css`
 
 
 barba.hooks.beforeEnter(async (data) => {
@@ -45,6 +58,11 @@ barba.hooks.beforeEnter(async (data) => {
     } else if (data.next.namespace === 'app-design') {
         await appDesignIntroInit(data.next.container)
     }
+
+    if (data.next.namespace !== 'locations') {
+        locationBtnsInit(data.next.container)
+    }
+
 });
 
 barba.hooks.once(async (data) => {
@@ -69,16 +87,6 @@ barba.hooks.once(async (data) => {
 });
 
 
-const homeJsFileUrl = `http://127.0.0.1:5500/homeAnimations.js`
-const aboutJsFileUrl = `http://127.0.0.1:5500/aboutAnimations.js`
-const locationsJsFileUrl = `http://127.0.0.1:5500/locationsAnimations.js`
-const contactJsFileUrl = `http://127.0.0.1:5500/contactAnimations.js`
-const locationBtnsJsFileUrl = `http://127.0.0.1:5500/location-btns.js`
-const designJsFileUrl = `http://127.0.0.1:5500/designAnimations.js`
-const designCssFileUrl = `http://127.0.0.1:5500/design.css`
-const locationsCssFileUrl = `http://127.0.0.1:5500/locations.css`
-// const pageSpecificScriptUrl = `https://cdn.jsdelivr.net/gh/blountdj/arch-studio@v1/home.js`
-
 
 barba.hooks.afterEnter((data) => {
     // console.log('barba.hooks.afterEnter')
@@ -86,13 +94,13 @@ barba.hooks.afterEnter((data) => {
     const nextPageId = data.next.namespace; // Assuming your container has an ID that matches the page
 
     // console.log(nextPageId.includes('design') && !currentPageId.includes('design'))
-        
+
     nextPageId === 'home' ? addScriptsToBody([homeJsFileUrl]) : removeScriptsFromBody([homeJsFileUrl])
     nextPageId === 'locations' ? addScriptsToBody([locationsJsFileUrl]) : removeScriptsFromBody([locationsJsFileUrl])
     nextPageId === 'locations' ? addFilesCssToBody([locationsCssFileUrl]) : removeCssFilesFromBody([locationsCssFileUrl])
     nextPageId === 'about' ? addScriptsToBody([aboutJsFileUrl]) : removeScriptsFromBody([aboutJsFileUrl])
     nextPageId === 'contact' ? addScriptsToBody([locationBtnsJsFileUrl, contactJsFileUrl]) : removeScriptsFromBody([locationBtnsJsFileUrl, contactJsFileUrl])
-    
+
     if (nextPageId.includes('design') && !currentPageId.includes('design')) {
         addScriptsToBody([designJsFileUrl]);
         addFilesCssToBody([designCssFileUrl]);
@@ -113,7 +121,7 @@ barba.init({
         {
             name: 'page-fade-transition',
             // to: { namespace: ['todo'] },
-            once() {},
+            once() { },
             async leave(data) {
                 // console.log('\n\nLEAVE')
                 await introOverlayFadeIn()
@@ -134,15 +142,15 @@ barba.init({
                     contactIntroAnimation()
                 } else if (data.next.namespace === 'web-design') {
                     // setTimeout(() => {
-                        webDesignIntroAnimation()
+                    webDesignIntroAnimation()
                     // }, 100)
                 } else if (data.next.namespace === 'app-design') {
                     // setTimeout(() => {
-                        appDesignIntroAnimation()
+                    appDesignIntroAnimation()
                     // }, 100)
-                } else if (data.next.namespace === 'graphic-design') {  
+                } else if (data.next.namespace === 'graphic-design') {
                     // setTimeout(() => {
-                        graphicDesignIntroAnimation()
+                    graphicDesignIntroAnimation()
                     // }, 100)
                 }
             },

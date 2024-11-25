@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
+export const locationBtnsInit = (container) => {
 
-    const ukBtn = document.getElementById('uk-btn');
-    const canadaBtn = document.getElementById('canada-btn');
-    const australiaBtn = document.getElementById('australia-btn');
+    const ukBtn = container.getElementById('uk-btn');
+    const canadaBtn = container.getElementById('canada-btn');
+    const australiaBtn = container.getElementById('australia-btn');
 
     function navigateToLocation(section) {
         const locationUrl = `https://designo-project.webflow.io/locations#${section}`;
@@ -12,4 +12,4 @@ document.addEventListener('DOMContentLoaded', function() {
     ukBtn.addEventListener('click', () => navigateToLocation('uk-section'))
     canadaBtn.addEventListener('click', () => navigateToLocation('canada-section'))
     australiaBtn.addEventListener('click', () => navigateToLocation('australia-section'))
-})
+}
