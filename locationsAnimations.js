@@ -7,7 +7,7 @@ import {
     xPercentOpacityReturn, 
     yPercentOpacityReturn, 
     animationColumnsLeave 
-} from `${ path }/commonAnimations.js`
+} from path + 'commonAnimations.js';
 
 export const locationsIntroInit = (container) => {
     // console.log('locationsIntroInit')

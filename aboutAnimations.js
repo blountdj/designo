@@ -12,7 +12,7 @@ import {
     transitionAnimationReset,
     fadeIn
 // } from './commonAnimations.js'
-} from `${ path }/commonAnimations.js`
+} from path + 'commonAnimations.js'
 
 
 export const aboutIntroInit = (container) => {

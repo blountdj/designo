@@ -10,7 +10,7 @@ import {
     xPercentOpacityReturnStaggered,
     yPercentOpacityReturnStaggered,
     transitionAnimationReset,
-} from `${ path }/commonAnimations.js`
+} from path + 'commonAnimations.js';
 
 
 export const contactIntroInit = () => {

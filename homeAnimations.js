@@ -10,7 +10,7 @@ import {
     animationColumnsEnter,
     scaleTo1,
     transitionAnimationReset
-} from `${ path }/commonAnimations.js`
+} from path + 'commonAnimations.js';
 
 
 export const homeIntroInit = (container) => {

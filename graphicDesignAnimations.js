@@ -8,7 +8,7 @@ import {
     scaleTo1,
     yPercentOpacityReturnStaggered,
     transitionAnimationReset
-} from `${ path }/commonAnimations.js`
+} from path + 'commonAnimations.js';
 
 
 export const graphicDesignIntroInit = (container) => {

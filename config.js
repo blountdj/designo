@@ -1,5 +1,5 @@
 export const CONFIG = {
     barbaDebug: false,
-    // path: '.',
-    path: 'https://cdn.jsdelivr.net/gh/blountdj/designo@v4',
+    // path: './',
+    path: 'https://cdn.jsdelivr.net/gh/blountdj/designo@v4/',
   };

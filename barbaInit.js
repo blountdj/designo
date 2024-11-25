@@ -3,15 +3,15 @@
 // import { CONFIG } from "./config.js";
 import { CONFIG, path } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v4/config.js";
 
-import { contactFormInit } from `${path}/contact-form.js`;
-import { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } from `${path}/homeAnimations.js`;
-import { aboutIntroInit, aboutIntroAnimation } from `${path}/aboutAnimations.js`;
-import { locationsIntroInit, locationsIntroAnimation } from `${ path }/locationsAnimations.js`;
-import { contactIntroInit, contactIntroAnimation } from `${path}/contactAnimations.js`;
-import { graphicDesignIntroInit, graphicDesignIntroAnimation } from `${ path }/graphicDesignAnimations.js`;
-import { webDesignIntroInit, webDesignIntroAnimation } from `${path}/webDesignAnimations.js`;
-import { appDesignIntroInit, appDesignIntroAnimation } from `${ path }/appDesignAnimations.js`;
-import { locationBtnsInit } from `${ path }/location-btns.js`;
+import { contactFormInit } from path + 'contact-form.js';
+import { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } from path + 'homeAnimations.js';
+import { aboutIntroInit, aboutIntroAnimation } from path + 'aboutAnimations.js';
+import { locationsIntroInit, locationsIntroAnimation } from path + 'locationsAnimations.js';
+import { contactIntroInit, contactIntroAnimation } from path + 'contactAnimations.js';
+import { graphicDesignIntroInit, graphicDesignIntroAnimation } from path + 'graphicDesignAnimations.js';
+import { webDesignIntroInit, webDesignIntroAnimation } from path + 'webDesignAnimations.js';
+import { appDesignIntroInit, appDesignIntroAnimation } from path + 'appDesignAnimations.js';
+import { locationBtnsInit } from path + 'location-btns.js';
 
 import {
     // textSplit,
@@ -19,24 +19,24 @@ import {
     addScriptsToBody,
     addFilesCssToBody,
     removeCssFilesFromBody
-} from `${ path }/utilities.js`;
+} from path + 'utilities.js';
 
 
 import {
     introOverlayFadeIn,
     animationColumnsEnter,
     // transitionAnimationReset
-} from `${ path }/commonAnimations.js`;
+} from path + 'commonAnimations.js';
 
 
-const homeJsFileUrl = `${ path }/homeAnimations.js`
-const aboutJsFileUrl = `${ path }/aboutAnimations.js`
-const locationsJsFileUrl = `${ path }/locationsAnimations.js`
-const contactJsFileUrl = `${ path }/contactAnimations.js`
-const locationBtnsJsFileUrl = `${ path }/location-btns.js`
-const designJsFileUrl = `${ path }/designAnimations.js`
-const designCssFileUrl = `${ path }/design.css`
-const locationsCssFileUrl = `${ path }/locations.css`
+const homeJsFileUrl = path + 'homeAnimations.js'
+const aboutJsFileUrl = path + 'aboutAnimations.js'
+const locationsJsFileUrl = path + 'locationsAnimations.js'
+const contactJsFileUrl = path + 'contactAnimations.js'
+const locationBtnsJsFileUrl = path + 'location-btns.js'
+const designJsFileUrl = path + 'designAnimations.js'
+const designCssFileUrl = path + 'design.css'
+const locationsCssFileUrl = path + 'locations.css'
 
 
 barba.hooks.beforeEnter(async (data) => {
@@ -85,7 +85,6 @@ barba.hooks.once(async (data) => {
         appDesignIntroAnimation()
     }
 });
-
 
 
 barba.hooks.afterEnter((data) => {
