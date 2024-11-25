@@ -1,7 +1,7 @@
 // console.log('barbaInit.js loaded')
 
 // import { CONFIG } from "./config.js";
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v4/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v5/config.js";
 
 import { contactFormInit } from CONFIG.path + 'contact-form.js';
 import { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } from CONFIG.path + 'homeAnimations.js';
