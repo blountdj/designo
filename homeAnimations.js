@@ -1,6 +1,6 @@
 // console.log('homeAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v8/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v9/config.js";
 
 const {
     introLogoFadeIn,

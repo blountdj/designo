@@ -1,7 +1,7 @@
 // console.log('barbaInit.js loaded')
 
 // import { CONFIG } from "./config.js";
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v8/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v9/config.js";
 
 const { contactFormInit } = await import(`${CONFIG.path}contact-form.js`)
 const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await import(`${CONFIG.path}homeAnimations.js`)
