@@ -1,4 +1,4 @@
-console.log('contactAnimations.js')
+// console.log('contactAnimations.js')
 
 import { 
     navBarLinksFadeIn, 
@@ -12,7 +12,7 @@ import {
 
 
 export const contactIntroInit = () => {
-    console.log('contactIntroInit')
+    // console.log('contactIntroInit')
     
     /* Nav Bar */
     const navBarLinks = document.querySelectorAll('.nav-link')
@@ -30,15 +30,7 @@ export const contactIntroInit = () => {
     /* Locations */
     const designElems = document.querySelectorAll('.about-attributes-card')
 
-    
-
-    // /* World Class Section */
-    // const wcH2 = document.querySelector('.about_worldclass_h2')
-    // const wcText = document.querySelector('.about-worldclass-text')
-    // const wcBgWrapper = document.querySelector('.about_worldclass_bg_wrapper')   
-
     gsap.set([heroSection], {scale: 3.5})
-
 
     gsap.set([heroH1, heroParagraph, heroBgCircle,  navBarLinks, navBarLogo,
         heroFormInputs, heroFormBtn, designElems
@@ -71,13 +63,10 @@ export const contactIntroInit = () => {
     gsap.set([designElems], {
         yPercent: 75,
     })
-
-
 }
 
-
 export const contactIntroAnimation = () => {
-    console.log('contactIntroAnimation')
+    // console.log('contactIntroAnimation')
     gsap.timeline()
 
     .add(() => transitionAnimationReset(), 0)
@@ -97,7 +86,4 @@ export const contactIntroAnimation = () => {
     .add(() => xPercentOpacityReturnStaggered(['#contact-form > .input-wrapper', '#contact-form > .btn-wrapper']), 1.5)
 
     .add(() => yPercentOpacityReturnStaggered('.about-attributes-card'), 2.2)
-
-
-  
 }

@@ -1,7 +1,6 @@
-console.log('locationsAnimations.js')
+// console.log('locationsAnimations.js')
 
 import { 
-    // introLogoFadeIn, 
     navBarLinksFadeIn, 
     xPercentOpacityReturn, 
     yPercentOpacityReturn, 
@@ -9,7 +8,7 @@ import {
 } from './commonAnimations.js'
 
 export const locationsIntroInit = (container) => {
-    console.log('locationsIntroInit')
+    // console.log('locationsIntroInit')
     // const introLogo = document.querySelector('.intro-logo')
     
     /* Nav Bar */
@@ -81,7 +80,7 @@ export const locationsIntroInit = (container) => {
 
 
 export const locationsIntroAnimation = (container) => {
-    console.log('locationsIntroAnimation')
+    // console.log('locationsIntroAnimation')
     gsap.timeline()
     .add(gsap.set('.intro-overlay', {autoAlpha: 0}), 0)
     .add(() => animationColumnsLeave(), 0)
@@ -176,9 +175,5 @@ function addBorderAnimation(mainElement, mapElement) {
   
     updatePath();
     window.addEventListener('resize', updatePath);
-  }
+}
   
-
-
-
-

@@ -1,3 +1,3 @@
 export const CONFIG = {
-    barbaDebug: true,
+    barbaDebug: false,
   };

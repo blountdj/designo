@@ -38,7 +38,7 @@
 // }); // end webflow.push()
 
 
-console.log('loaded')
+console.log('form-testing.js loaded')
 
 $('[wr-type="error"]').hide() // Hide errors
 $('.error').removeClass('error') // Remove error state from fields

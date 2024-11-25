@@ -1,5 +1,4 @@
-console.log('contactAnimations.js')
-
+// console.log('contactAnimations.js')
 
 import { 
     navBarLinksFadeIn, 
@@ -12,7 +11,7 @@ import {
 
 
 export const appDesignIntroInit = (container) => {
-    console.log('appDesignIntroInit')
+    // console.log('appDesignIntroInit')
     
     return new Promise((resolve) => {
         /* Nav Bar */
@@ -67,7 +66,7 @@ export const appDesignIntroInit = (container) => {
 
 
 export const appDesignIntroAnimation = () => {
-    console.log('appDesignIntroAnimation')
+    // console.log('appDesignIntroAnimation')
     gsap.timeline()
 
     .add(() => transitionAnimationReset(), 0)

@@ -1,4 +1,4 @@
-console.log('contactAnimations.js')
+// console.log('contactAnimations.js')
 
 import { 
     navBarLinksFadeIn, 
@@ -11,7 +11,7 @@ import {
 
 
 export const graphicDesignIntroInit = (container) => {
-    console.log('graphicDesignIntroInit')
+    // console.log('graphicDesignIntroInit')
     
     return new Promise((resolve) => {
         /* Nav Bar */
@@ -29,7 +29,6 @@ export const graphicDesignIntroInit = (container) => {
         /* Cards */
         const designElems = container.querySelectorAll('.webdesign_main_card')
         const designElemImgs = container.querySelectorAll('img.image-6')
-
 
         gsap.set([heroSection, designElemImgs], {scale: 3.5})
 
@@ -65,7 +64,7 @@ export const graphicDesignIntroInit = (container) => {
 }
 
 export const graphicDesignIntroAnimation = () => {
-    console.log('graphicDesignIntroAnimation')
+    // console.log('graphicDesignIntroAnimation')
     gsap.timeline()
 
     .add(() => transitionAnimationReset(), 0)

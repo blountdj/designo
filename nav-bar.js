@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('nav-bar.js loaded1')
+    // console.log('nav-bar.js loaded1')
 
     const overlay = document.getElementById('overlay');
     const navMobileMenu = document.getElementById('nav-menu-mobile');

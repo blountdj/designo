@@ -109,7 +109,6 @@ export const introOverlayFadeIn = () => {
 }
 
 
-
 /* ######### page-column-transition */
 const tlColumnsAnimation = gsap.timeline({paused: true, defaults: {ease: 'power4inOut'}});
 tlColumnsAnimation.to('.transition_column', {
@@ -120,7 +119,7 @@ tlColumnsAnimation.to('.transition_column', {
 });
 
 export const animationColumnsEnter = () => {
-    console.log('animationColumnsEnter')
+    // console.log('animationColumnsEnter')
     return new Promise((resolve) => {
         tlColumnsAnimation.play().then(resolve);
     });
@@ -133,7 +132,7 @@ export const animationColumnsLeave = () => {
 }
 
 export const transitionAnimationReset = () => {
-    console.log('transitionAnimationReset')
+    // console.log('transitionAnimationReset')
     gsap.set('.intro-overlay', {autoAlpha: 0})
     gsap.set('.transition', {autoAlpha: 0})
     gsap.set('.transition_column', {scaleX: 0})

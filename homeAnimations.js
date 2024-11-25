@@ -1,4 +1,4 @@
-console.log('homeAnimations.js')
+// console.log('homeAnimations.js')
 
 import { 
     introLogoFadeIn, 
@@ -6,14 +6,13 @@ import {
     xPercentOpacityReturn, 
     yPercentOpacityReturn, 
     animationColumnsEnter,
-    animationColumnsLeave,
     scaleTo1,
     transitionAnimationReset
 } from './commonAnimations.js'
 
 
 export const homeIntroInit = (container) => {
-    console.log('homeIntroInit')
+    // console.log('homeIntroInit')
 
     /* Intro Logo */
     const introLogo = document.querySelector('.intro-logo')
@@ -71,9 +70,8 @@ export const homeIntroInit = (container) => {
 
 }
 
-
 export const homeIntroAnimation = () => {
-    console.log('homeIntroAnimation')
+    // console.log('homeIntroAnimation')
     
     return new Promise((resolve) => {
         gsap.timeline({
@@ -84,13 +82,12 @@ export const homeIntroAnimation = () => {
     })
 }
 
-
 export const homeTransitionAnimation = (type) => {
-    console.log('homeTransitionAnimation')
+    // console.log('homeTransitionAnimation')
 
     const delay = type === 'once' ? 0 : 2.25
 
-    console.log('delay:', delay)
+    // console.log('delay:', delay)
 
     gsap.timeline()
     .add(() => transitionAnimationReset(), 2.25 - delay) // 2.25
