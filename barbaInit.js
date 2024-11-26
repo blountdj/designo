@@ -1,6 +1,6 @@
 // console.log('barbaInit.js loaded')
 
-// import { CONFIG } from "./config.js";
+// import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v10/config.js";
 import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v10/config.js";
 
 function importModule(modulePath) {
@@ -13,11 +13,14 @@ function importModule(modulePath) {
             resolve(window);
         };
         script.onerror = reject;
-        document.head.appendChild(script);
+        console.log('script:', script)
+        document.body.appendChild(script);
     });
 }
 
+// console.log('${CONFIG.path}:', CONFIG.path)
 const { contactFormInit } = await importModule(`${CONFIG.path}contact-form.js`)
+// const { contactFormInit } = await importModule(`127.0.0.1:5500/contact-form.js`)
 const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await importModule(`${CONFIG.path}homeAnimations.js`)
 const { aboutIntroInit, aboutIntroAnimation } = await importModule(`${CONFIG.path}aboutAnimations.js`);
 const { locationsIntroInit, locationsIntroAnimation } = await importModule(`${CONFIG.path}locationsAnimations.js`);
