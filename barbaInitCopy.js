@@ -1,74 +1,74 @@
 // console.log('barbaInit.js loaded')
 
-// import { CONFIG } from "./config.js";
-import { CONFIG } from "./config.js";
+// import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v13/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v13/config.js";
 
 function importModule(modulePath) {
     return new Promise((resolve, reject) => {
-      try {
-        // Try modern import first
-        import(modulePath).then(resolve).catch(() => {
-          // Fallback to script loading
-          const script = document.createElement('script');
-          script.src = modulePath;
-          
-          script.onload = () => {
-            // Assumes the module exports are now available globally
-            const moduleName = modulePath.split('/').pop().replace('.js', '');
-            const exports = window[moduleName] || {};
-            resolve(exports);
-          };
-          
-          script.onerror = () => {
-            reject(new Error(`Failed to load module: ${modulePath}`));
-          };
-          
-          document.head.appendChild(script);
-        });
-      } catch {
-        // Fallback for environments without import
-        const script = document.createElement('script');
-        script.src = modulePath;
-        
-        script.onload = () => {
-          const moduleName = modulePath.split('/').pop().replace('.js', '');
-          const exports = window[moduleName] || {};
-          resolve(exports);
-        };
-        
-        script.onerror = () => {
-          reject(new Error(`Failed to load module: ${modulePath}`));
-        };
-        
-        document.head.appendChild(script);
-      }
-    });
-  }
+        try {
+            // Try modern import first
+            import(modulePath).then(resolve).catch(() => {
+                // Fallback to script loading
+                const script = document.createElement('script');
+                script.src = modulePath;
 
-  const { contactFormInit } = await importModule(`${CONFIG.path}contact-form.js`)
-  const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await importModule(`${CONFIG.path}homeAnimations.js`)
-  const { aboutIntroInit, aboutIntroAnimation } = await importModule(`${CONFIG.path}aboutAnimations.js`);
-  const { locationsIntroInit, locationsIntroAnimation } = await importModule(`${CONFIG.path}locationsAnimations.js`);
-  const { contactIntroInit, contactIntroAnimation } = await importModule(`${CONFIG.path}contactAnimations.js`);
-  const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await importModule(`${CONFIG.path}graphicDesignAnimations.js`);
-  const { webDesignIntroInit, webDesignIntroAnimation } = await importModule(`${CONFIG.path}webDesignAnimations.js`);
-  const { appDesignIntroInit, appDesignIntroAnimation } = await importModule(`${CONFIG.path}appDesignAnimations.js`);
-  const { locationBtnsInit } = await importModule(`${CONFIG.path}location-btns.js`);
-  
-  const {
-      // textSplit,
-      removeScriptsFromBody,
-      addScriptsToBody,
-      addFilesCssToBody,
-      removeCssFilesFromBody
-  } = await importModule(`${CONFIG.path}utilities.js`);
-  
-  
-  const {
-      introOverlayFadeIn,
-      animationColumnsEnter,
-      // transitionAnimationReset
-  } = await importModule(`${CONFIG.path}commonAnimations.js`);
+                script.onload = () => {
+                    // Assumes the module exports are now available globally
+                    const moduleName = modulePath.split('/').pop().replace('.js', '');
+                    const exports = window[moduleName] || {};
+                    resolve(exports);
+                };
+
+                script.onerror = () => {
+                    reject(new Error(`Failed to load module: ${modulePath}`));
+                };
+
+                document.head.appendChild(script);
+            });
+        } catch {
+            // Fallback for environments without import
+            const script = document.createElement('script');
+            script.src = modulePath;
+
+            script.onload = () => {
+                const moduleName = modulePath.split('/').pop().replace('.js', '');
+                const exports = window[moduleName] || {};
+                resolve(exports);
+            };
+
+            script.onerror = () => {
+                reject(new Error(`Failed to load module: ${modulePath}`));
+            };
+
+            document.head.appendChild(script);
+        }
+    });
+}
+
+const { contactFormInit } = await importModule(`${CONFIG.path}contact-form.js`)
+const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await importModule(`${CONFIG.path}homeAnimations.js`)
+const { aboutIntroInit, aboutIntroAnimation } = await importModule(`${CONFIG.path}aboutAnimations.js`);
+const { locationsIntroInit, locationsIntroAnimation } = await importModule(`${CONFIG.path}locationsAnimations.js`);
+const { contactIntroInit, contactIntroAnimation } = await importModule(`${CONFIG.path}contactAnimations.js`);
+const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await importModule(`${CONFIG.path}graphicDesignAnimations.js`);
+const { webDesignIntroInit, webDesignIntroAnimation } = await importModule(`${CONFIG.path}webDesignAnimations.js`);
+const { appDesignIntroInit, appDesignIntroAnimation } = await importModule(`${CONFIG.path}appDesignAnimations.js`);
+const { locationBtnsInit } = await importModule(`${CONFIG.path}location-btns.js`);
+
+const {
+    // textSplit,
+    removeScriptsFromBody,
+    addScriptsToBody,
+    addFilesCssToBody,
+    removeCssFilesFromBody
+} = await importModule(`${CONFIG.path}utilities.js`);
+
+
+const {
+    introOverlayFadeIn,
+    animationColumnsEnter,
+    // transitionAnimationReset
+} = await importModule(`${CONFIG.path}commonAnimations.js`);
 
 // const { contactFormInit } = await import(`${CONFIG.path}contact-form.js`)
 // const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await import(`${CONFIG.path}homeAnimations.js`)

@@ -1,6 +1,6 @@
 // console.log('homeAnimations.js')
 
-import { CONFIG } from "./config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v13/config.js";
 
 
 // function importModule(modulePath) {
