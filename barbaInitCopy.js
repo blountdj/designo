@@ -3,32 +3,82 @@
 // import { CONFIG } from "./config.js";
 import { CONFIG } from "./config.js";
 
-// function importModule(modulePath) {
-//     return new Promise((resolve, reject) => {
-//         const script = document.createElement('script');
-//         script.type = 'module';
-//         script.src = modulePath;
-//         script.onload = () => {
-//             // Assuming the module exports are globally available
-//             resolve(window);
-//         };
-//         script.onerror = reject;
-//         console.log('script:', script)
-//         document.body.appendChild(script);
-//     });
-// }
+function importModule(modulePath) {
+    return new Promise((resolve, reject) => {
+      try {
+        // Try modern import first
+        import(modulePath).then(resolve).catch(() => {
+          // Fallback to script loading
+          const script = document.createElement('script');
+          script.src = modulePath;
+          
+          script.onload = () => {
+            // Assumes the module exports are now available globally
+            const moduleName = modulePath.split('/').pop().replace('.js', '');
+            const exports = window[moduleName] || {};
+            resolve(exports);
+          };
+          
+          script.onerror = () => {
+            reject(new Error(`Failed to load module: ${modulePath}`));
+          };
+          
+          document.head.appendChild(script);
+        });
+      } catch {
+        // Fallback for environments without import
+        const script = document.createElement('script');
+        script.src = modulePath;
+        
+        script.onload = () => {
+          const moduleName = modulePath.split('/').pop().replace('.js', '');
+          const exports = window[moduleName] || {};
+          resolve(exports);
+        };
+        
+        script.onerror = () => {
+          reject(new Error(`Failed to load module: ${modulePath}`));
+        };
+        
+        document.head.appendChild(script);
+      }
+    });
+  }
 
-// // console.log('${CONFIG.path}:', CONFIG.path)
-// const { contactFormInit } = await importModule(`${CONFIG.path}contact-form.js`)
-// // const { contactFormInit } = await importModule(`127.0.0.1:5500/contact-form.js`)
-// const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await importModule(`${CONFIG.path}homeAnimations.js`)
-// const { aboutIntroInit, aboutIntroAnimation } = await importModule(`${CONFIG.path}aboutAnimations.js`);
-// const { locationsIntroInit, locationsIntroAnimation } = await importModule(`${CONFIG.path}locationsAnimations.js`);
-// const { contactIntroInit, contactIntroAnimation } = await importModule(`${CONFIG.path}contactAnimations.js`);
-// const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await importModule(`${CONFIG.path}graphicDesignAnimations.js`);
-// const { webDesignIntroInit, webDesignIntroAnimation } = await importModule(`${CONFIG.path}webDesignAnimations.js`);
-// const { appDesignIntroInit, appDesignIntroAnimation } = await importModule(`${CONFIG.path}appDesignAnimations.js`);
-// const { locationBtnsInit } = await importModule(`${CONFIG.path}location-btns.js`);
+  const { contactFormInit } = await importModule(`${CONFIG.path}contact-form.js`)
+  const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await importModule(`${CONFIG.path}homeAnimations.js`)
+  const { aboutIntroInit, aboutIntroAnimation } = await importModule(`${CONFIG.path}aboutAnimations.js`);
+  const { locationsIntroInit, locationsIntroAnimation } = await importModule(`${CONFIG.path}locationsAnimations.js`);
+  const { contactIntroInit, contactIntroAnimation } = await importModule(`${CONFIG.path}contactAnimations.js`);
+  const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await importModule(`${CONFIG.path}graphicDesignAnimations.js`);
+  const { webDesignIntroInit, webDesignIntroAnimation } = await importModule(`${CONFIG.path}webDesignAnimations.js`);
+  const { appDesignIntroInit, appDesignIntroAnimation } = await importModule(`${CONFIG.path}appDesignAnimations.js`);
+  const { locationBtnsInit } = await importModule(`${CONFIG.path}location-btns.js`);
+  
+  const {
+      // textSplit,
+      removeScriptsFromBody,
+      addScriptsToBody,
+      addFilesCssToBody,
+      removeCssFilesFromBody
+  } = await importModule(`${CONFIG.path}utilities.js`);
+  
+  
+  const {
+      introOverlayFadeIn,
+      animationColumnsEnter,
+      // transitionAnimationReset
+  } = await importModule(`${CONFIG.path}commonAnimations.js`);
+
+// const { contactFormInit } = await import(`${CONFIG.path}contact-form.js`)
+// const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await import(`${CONFIG.path}homeAnimations.js`)
+// const { aboutIntroInit, aboutIntroAnimation } = await import(`${CONFIG.path}aboutAnimations.js`);
+// const { locationsIntroInit, locationsIntroAnimation } = await import(`${CONFIG.path}locationsAnimations.js`);
+// const { contactIntroInit, contactIntroAnimation } = await import(`${CONFIG.path}contactAnimations.js`);
+// const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await import(`${CONFIG.path}graphicDesignAnimations.js`);
+// const { webDesignIntroInit, webDesignIntroAnimation } = await import(`${CONFIG.path}webDesignAnimations.js`);
+// const { appDesignIntroInit, appDesignIntroAnimation } = await import(`${CONFIG.path}appDesignAnimations.js`);
+// const { locationBtnsInit } = await import(`${CONFIG.path}location-btns.js`);
 
 // const {
 //     // textSplit,
@@ -36,40 +86,14 @@ import { CONFIG } from "./config.js";
 //     addScriptsToBody,
 //     addFilesCssToBody,
 //     removeCssFilesFromBody
-// } = await importModule(`${CONFIG.path}utilities.js`);
+// } = await import(`${CONFIG.path}utilities.js`);
 
 
 // const {
 //     introOverlayFadeIn,
 //     animationColumnsEnter,
 //     // transitionAnimationReset
-// } = await importModule(`${CONFIG.path}commonAnimations.js`);
-
-
-const { contactFormInit } = await import(`${CONFIG.path}contact-form.js`)
-const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await import(`${CONFIG.path}homeAnimations.js`)
-const { aboutIntroInit, aboutIntroAnimation } = await import(`${CONFIG.path}aboutAnimations.js`);
-const { locationsIntroInit, locationsIntroAnimation } = await import(`${CONFIG.path}locationsAnimations.js`);
-const { contactIntroInit, contactIntroAnimation } = await import(`${CONFIG.path}contactAnimations.js`);
-const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await import(`${CONFIG.path}graphicDesignAnimations.js`);
-const { webDesignIntroInit, webDesignIntroAnimation } = await import(`${CONFIG.path}webDesignAnimations.js`);
-const { appDesignIntroInit, appDesignIntroAnimation } = await import(`${CONFIG.path}appDesignAnimations.js`);
-const { locationBtnsInit } = await import(`${CONFIG.path}location-btns.js`);
-
-const {
-    // textSplit,
-    removeScriptsFromBody,
-    addScriptsToBody,
-    addFilesCssToBody,
-    removeCssFilesFromBody
-} = await import(`${CONFIG.path}utilities.js`);
-
-
-const {
-    introOverlayFadeIn,
-    animationColumnsEnter,
-    // transitionAnimationReset
-} = await import(`${CONFIG.path}commonAnimations.js`);
+// } = await import(`${CONFIG.path}commonAnimations.js`);
 
 
 const homeJsFileUrl = `${CONFIG.path}homeAnimations.js`
