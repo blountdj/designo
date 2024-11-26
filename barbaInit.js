@@ -1,7 +1,7 @@
 // console.log('barbaInit.js loaded')
 
-// import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v11/config.js";
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v11/config.js";
+// import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v12/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v12/config.js";
 
 // function importModule(modulePath) {
 //     return new Promise((resolve, reject) => {
