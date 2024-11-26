@@ -4,71 +4,140 @@
 import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v13/config.js";
 
 function importModule(modulePath) {
+    // Global object to store modules
+    window.__importedModules = window.__importedModules || {};
+  
+    // If module is already loaded, return it immediately
+    if (window.__importedModules[modulePath]) {
+      return Promise.resolve(window.__importedModules[modulePath]);
+    }
+  
+    // Create a promise to load the module
     return new Promise((resolve, reject) => {
-        try {
-            // Try modern import first
-            import(modulePath).then(resolve).catch(() => {
-                // Fallback to script loading
-                const script = document.createElement('script');
-                script.src = modulePath;
-
-                script.onload = () => {
-                    // Assumes the module exports are now available globally
-                    const moduleName = modulePath.split('/').pop().replace('.js', '');
-                    const exports = window[moduleName] || {};
-                    resolve(exports);
-                };
-
-                script.onerror = () => {
-                    reject(new Error(`Failed to load module: ${modulePath}`));
-                };
-
-                document.head.appendChild(script);
-            });
-        } catch {
-            // Fallback for environments without import
+      try {
+        // Try native import first
+        import(modulePath)
+          .then(module => {
+            window.__importedModules[modulePath] = module;
+            resolve(module);
+          })
+          .catch(() => {
+            // Fallback to script loading
             const script = document.createElement('script');
             script.src = modulePath;
-
+            
             script.onload = () => {
-                const moduleName = modulePath.split('/').pop().replace('.js', '');
-                const exports = window[moduleName] || {};
-                resolve(exports);
+              // Assumes the module exports are now available globally
+              const moduleName = modulePath.split('/').pop().replace('.js', '');
+              const module = window[moduleName] || {};
+              window.__importedModules[modulePath] = module;
+              resolve(module);
             };
-
+            
             script.onerror = () => {
-                reject(new Error(`Failed to load module: ${modulePath}`));
+              reject(new Error(`Failed to load module: ${modulePath}`));
             };
-
+            
             document.head.appendChild(script);
-        }
+          });
+      } catch {
+        // Fallback for environments without import
+        const script = document.createElement('script');
+        script.src = modulePath;
+        
+        script.onload = () => {
+          const moduleName = modulePath.split('/').pop().replace('.js', '');
+          const module = window[moduleName] || {};
+          window.__importedModules[modulePath] = module;
+          resolve(module);
+        };
+        
+        script.onerror = () => {
+          reject(new Error(`Failed to load module: ${modulePath}`));
+        };
+        
+        document.head.appendChild(script);
+      }
     });
 }
+  
+// Global object to store module promises
+window.__modulePromises = {};
 
-const { contactFormInit } = await importModule(`${CONFIG.path}contact-form.js`)
-const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await importModule(`${CONFIG.path}homeAnimations.js`)
-const { aboutIntroInit, aboutIntroAnimation } = await importModule(`${CONFIG.path}aboutAnimations.js`);
-const { locationsIntroInit, locationsIntroAnimation } = await importModule(`${CONFIG.path}locationsAnimations.js`);
-const { contactIntroInit, contactIntroAnimation } = await importModule(`${CONFIG.path}contactAnimations.js`);
-const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await importModule(`${CONFIG.path}graphicDesignAnimations.js`);
-const { webDesignIntroInit, webDesignIntroAnimation } = await importModule(`${CONFIG.path}webDesignAnimations.js`);
-const { appDesignIntroInit, appDesignIntroAnimation } = await importModule(`${CONFIG.path}appDesignAnimations.js`);
-const { locationBtnsInit } = await importModule(`${CONFIG.path}location-btns.js`);
+// Function to safely import and cache module promises
+function safeImportModule(modulePath) {
+if (!window.__modulePromises[modulePath]) {
+    window.__modulePromises[modulePath] = importModule(modulePath);
+}
+return window.__modulePromises[modulePath];
+}
 
-const {
-    // textSplit,
-    removeScriptsFromBody,
-    addScriptsToBody,
-    addFilesCssToBody,
-    removeCssFilesFromBody
-} = await importModule(`${CONFIG.path}utilities.js`);
+let contactForm, homeAnimations, aboutAnimations, contactAnimations, graphicDesignAnimations, webDesignAnimations, appDesignAnimations, locationsAnimations, locationBtns, utilities, commonAnimations;
+
+// Preload modules
+Promise.all([
+  safeImportModule(`${CONFIG.path}contact-form.js`),
+  safeImportModule(`${CONFIG.path}homeAnimations.js`),
+  safeImportModule(`${CONFIG.path}aboutAnimations.js`),
+  safeImportModule(`${CONFIG.path}contactAnimations.js`),
+  safeImportModule(`${CONFIG.path}graphicDesignAnimations.js`),
+  safeImportModule(`${CONFIG.path}webDesignAnimations.js`),
+  safeImportModule(`${CONFIG.path}appDesignAnimations.js`),
+  safeImportModule(`${CONFIG.path}locationsAnimations.js`),
+  safeImportModule(`${CONFIG.path}location-btns.js`),
+  safeImportModule(`${CONFIG.path}utilities.js`),
+  safeImportModule(`${CONFIG.path}commonAnimations.js`)
+]).then(([contactFormModule, homeAnimationsModule, aboutAnimationsModule, contactAnimationsModule, graphicDesignAnimationsModule, webDesignAnimationsModule, appDesignAnimationsModule, locationsAnimationsModule, locationBtnsModule, utilitiesModule, commonAnimationsModule]) => {
+  // Store modules globally
+  contactForm = contactFormModule;
+  homeAnimations = homeAnimationsModule;
+  aboutAnimations = aboutAnimationsModule;
+  contactAnimations = contactAnimationsModule;
+  graphicDesignAnimations = graphicDesignAnimationsModule;
+  webDesignAnimations = webDesignAnimationsModule;
+  appDesignAnimations = appDesignAnimationsModule;
+  locationsAnimations = locationsAnimationsModule;
+  locationBtns = locationBtnsModule;
+  utilities = utilitiesModule;
+  commonAnimations = commonAnimationsModule;
+  // Continue with rest of your script
+  // Now you can use functions like:
+//   contactForm.contactFormInit();
+//   homeAnimations.homeIntroInit();
+}).catch(error => {
+  console.error('Module loading failed:', error);
+});
 
 
-const {
-    introOverlayFadeIn,
-    animationColumnsEnter,
-    // transitionAnimationReset
-} = await importModule(`${CONFIG.path}commonAnimations.js`);
+
+// const { contactFormInit } = await importModule(`${CONFIG.path}contact-form.js`)
+// const { contactIntroInit, contactIntroAnimation } = await importModule(`${CONFIG.path}contactAnimations.js`);
+
+// const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await importModule(`${CONFIG.path}homeAnimations.js`)
+// const { aboutIntroInit, aboutIntroAnimation } = await importModule(`${CONFIG.path}aboutAnimations.js`);
+
+
+// const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await importModule(`${CONFIG.path}graphicDesignAnimations.js`);
+// const { webDesignIntroInit, webDesignIntroAnimation } = await importModule(`${CONFIG.path}webDesignAnimations.js`);
+// const { appDesignIntroInit, appDesignIntroAnimation } = await importModule(`${CONFIG.path}appDesignAnimations.js`);
+
+// const { locationsIntroInit, locationsIntroAnimation } = await importModule(`${CONFIG.path}locationsAnimations.js`);
+// const { locationBtnsInit } = await importModule(`${CONFIG.path}location-btns.js`);
+
+// const {
+//     // textSplit,
+//     removeScriptsFromBody,
+//     addScriptsToBody,
+//     addFilesCssToBody,
+//     removeCssFilesFromBody
+// } = await importModule(`${CONFIG.path}utilities.js`);
+
+
+// const {
+//     introOverlayFadeIn,
+//     animationColumnsEnter,
+//     // transitionAnimationReset
+// } = await importModule(`${CONFIG.path}commonAnimations.js`);
 
 // const { contactFormInit } = await import(`${CONFIG.path}contact-form.js`)
 // const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await import(`${CONFIG.path}homeAnimations.js`)
@@ -111,23 +180,23 @@ barba.hooks.beforeEnter(async (data) => {
     // window.scrollTo(0, 0); // Scroll to the top of the page
     // console.log('data.next.namespace:', data.next.namespace)
     if (data.next.namespace === 'home') {
-        homeIntroInit(data.next.container)
+        homeAnimations.homeIntroInit(data.next.container)
     } else if (data.next.namespace === 'about') {
-        aboutIntroInit(data.next.container)
+        aboutAnimations.aboutIntroInit(data.next.container)
     } else if (data.next.namespace === 'locations') {
-        locationsIntroInit(data.next.container)
+        locationsAnimations.locationsIntroInit(data.next.container)
     } else if (data.next.namespace === 'contact') {
-        contactIntroInit(data.next.container)
+        contactAnimations.contactIntroInit(data.next.container)
     } else if (data.next.namespace === 'graphic-design') {
-        await graphicDesignIntroInit(data.next.container)
+        await graphicDesignAnimations.graphicDesignIntroInit(data.next.container)
     } else if (data.next.namespace === 'web-design') {
-        await webDesignIntroInit(data.next.container)
+        await webDesignAnimations.webDesignIntroInit(data.next.container)
     } else if (data.next.namespace === 'app-design') {
-        await appDesignIntroInit(data.next.container)
+        await appDesignAnimations.appDesignIntroInit(data.next.container)
     }
 
     if (data.next.namespace !== 'locations') {
-        locationBtnsInit(data.next.container)
+        locationsAnimations.locationBtnsInit(data.next.container)
     }
 
 });
@@ -136,20 +205,20 @@ barba.hooks.once(async (data) => {
     // console.log('barba.hooks.once')
 
     if (data.next.namespace === 'home') {
-        await homeIntroAnimation()
-        homeTransitionAnimation('once')
+        await homeAnimations.homeIntroAnimation()
+        homeAnimations.homeTransitionAnimation('once')
     } else if (data.next.namespace === 'about') {
-        aboutIntroAnimation()
+        aboutAnimations.aboutIntroAnimation()
     } else if (data.next.namespace === 'locations') {
-        locationsIntroAnimation()
+        locationsAnimations.locationsIntroAnimation()
     } else if (data.next.namespace === 'contact') {
-        contactIntroAnimation()
+        contactAnimations.contactIntroAnimation()
     } else if (data.next.namespace === 'graphic-design') {
-        graphicDesignIntroAnimation()
+        graphicDesignAnimations.graphicDesignIntroAnimation()
     } else if (data.next.namespace === 'web-design') {
-        webDesignIntroAnimation()
+        webDesignAnimations.webDesignIntroAnimation()
     } else if (data.next.namespace === 'app-design') {
-        appDesignIntroAnimation()
+        appDesignAnimations.appDesignIntroAnimation()
     }
 });
 
@@ -161,20 +230,20 @@ barba.hooks.afterEnter((data) => {
 
     // console.log(nextPageId.includes('design') && !currentPageId.includes('design'))
 
-    nextPageId === 'home' ? addScriptsToBody([homeJsFileUrl]) : removeScriptsFromBody([homeJsFileUrl])
-    nextPageId === 'locations' ? addScriptsToBody([locationsJsFileUrl]) : removeScriptsFromBody([locationsJsFileUrl])
-    nextPageId === 'locations' ? addFilesCssToBody([locationsCssFileUrl]) : removeCssFilesFromBody([locationsCssFileUrl])
-    nextPageId === 'about' ? addScriptsToBody([aboutJsFileUrl]) : removeScriptsFromBody([aboutJsFileUrl])
-    nextPageId === 'contact' ? addScriptsToBody([locationBtnsJsFileUrl, contactJsFileUrl]) : removeScriptsFromBody([locationBtnsJsFileUrl, contactJsFileUrl])
+    nextPageId === 'home' ? utilities.addScriptsToBody([homeJsFileUrl]) : utilities.removeScriptsFromBody([homeJsFileUrl])
+    nextPageId === 'locations' ? utilities.addScriptsToBody([locationsJsFileUrl]) : utilities.removeScriptsFromBody([locationsJsFileUrl])
+    nextPageId === 'locations' ? utilities.addFilesCssToBody([locationsCssFileUrl]) : utilities.removeCssFilesFromBody([locationsCssFileUrl])
+    nextPageId === 'about' ? utilities.addScriptsToBody([aboutJsFileUrl]) : utilities.removeScriptsFromBody([aboutJsFileUrl])
+    nextPageId === 'contact' ? utilities.addScriptsToBody([locationBtnsJsFileUrl, contactJsFileUrl]) : utilities.removeScriptsFromBody([locationBtnsJsFileUrl, contactJsFileUrl])
 
     if (nextPageId.includes('design') && !currentPageId.includes('design')) {
-        addScriptsToBody([designJsFileUrl]);
-        addFilesCssToBody([designCssFileUrl]);
+        utilities.addScriptsToBody([designJsFileUrl]);
+        utilities.addFilesCssToBody([designCssFileUrl]);
     } else if (currentPageId.includes('design') && !nextPageId.includes('design')) {
-        removeScriptsFromBody([designJsFileUrl]);
-        removeCssFilesFromBody([designCssFileUrl]);
+        utilities.removeScriptsFromBody([designJsFileUrl]);
+        utilities.removeCssFilesFromBody([designCssFileUrl]);
     } else if (nextPageId === 'contact') {
-        contactFormInit(data.next.container)
+        contactForm.contactFormInit(data.next.container)
     }
 });
 
@@ -190,8 +259,8 @@ barba.init({
             once() { },
             async leave(data) {
                 // console.log('\n\nLEAVE')
-                await introOverlayFadeIn()
-                await animationColumnsEnter();
+                await commonAnimations.introOverlayFadeIn()
+                await commonAnimations.animationColumnsEnter();
                 window.scrollTo(0, 0);
 
             },
@@ -199,24 +268,24 @@ barba.init({
                 // console.log('\n\nENTER')
 
                 if (data.next.namespace === 'home') {
-                    homeTransitionAnimation('enter')
+                    homeAnimations.homeTransitionAnimation('enter')
                 } else if (data.next.namespace === 'about') {
-                    aboutIntroAnimation()
+                    aboutAnimations.aboutIntroAnimation()
                 } else if (data.next.namespace === 'locations') {
-                    locationsIntroAnimation()
+                    locationsAnimations.locationsIntroAnimation()
                 } else if (data.next.namespace === 'contact') {
-                    contactIntroAnimation()
+                    contactAnimations.contactIntroAnimation()
                 } else if (data.next.namespace === 'web-design') {
                     // setTimeout(() => {
-                    webDesignIntroAnimation()
+                    webDesignAnimations.webDesignIntroAnimation()
                     // }, 100)
                 } else if (data.next.namespace === 'app-design') {
                     // setTimeout(() => {
-                    appDesignIntroAnimation()
+                    appDesignAnimations.appDesignIntroAnimation()
                     // }, 100)
                 } else if (data.next.namespace === 'graphic-design') {
                     // setTimeout(() => {
-                    graphicDesignIntroAnimation()
+                    graphicDesignAnimations.graphicDesignIntroAnimation()
                     // }, 100)
                 }
             },
