@@ -1,6 +1,20 @@
 // console.log('contactAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v9/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v10/config.js";
+
+function importModule(modulePath) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.src = modulePath;
+        script.onload = () => {
+            // Assuming the module exports are globally available
+            resolve(window);
+        };
+        script.onerror = reject;
+        document.head.appendChild(script);
+    });
+}
 
 const {
     navBarLinksFadeIn,
@@ -9,7 +23,17 @@ const {
     scaleTo1,
     yPercentOpacityReturnStaggered,
     transitionAnimationReset
-} = await import(`${CONFIG.path}commonAnimations.js`)
+} = await importModule(`${CONFIG.path}commonAnimations.js`)
+
+
+// const {
+//     navBarLinksFadeIn,
+//     xPercentOpacityReturn,
+//     yPercentOpacityReturn,
+//     scaleTo1,
+//     yPercentOpacityReturnStaggered,
+//     transitionAnimationReset
+// } = await import(`${CONFIG.path}commonAnimations.js`)
 
 
 export const webDesignIntroInit = (container) => {
