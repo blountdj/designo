@@ -17,7 +17,6 @@ function importModule(modulePath) {
     });
 }
 
-
 const { contactFormInit } = await importModule(`${CONFIG.path}contact-form.js`)
 const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await importModule(`${CONFIG.path}homeAnimations.js`)
 const { aboutIntroInit, aboutIntroAnimation } = await importModule(`${CONFIG.path}aboutAnimations.js`);
