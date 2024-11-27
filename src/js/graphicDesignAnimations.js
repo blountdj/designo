@@ -1,5 +1,5 @@
 // console.log('contactAnimations.js')
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v14/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v14/src/js/config.js";
 
 // function importModule(modulePath) {
 //     return new Promise((resolve, reject) => {
@@ -31,7 +31,7 @@ const {
     scaleTo1,
     yPercentOpacityReturnStaggered,
     transitionAnimationReset
-} = await import(`${CONFIG.path}commonAnimations.js`)
+} = await import(`${CONFIG.path}${CONFIG.path}commonAnimations.js`)
 
 
 export const graphicDesignIntroInit = (container) => {

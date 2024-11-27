@@ -1,16 +1,16 @@
 // console.log('barbaInit.js loaded')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v14/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v14/src/js/config.js";
 
-const { contactFormInit } = await import(`${CONFIG.path}contact-form.js`)
-const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await import(`${CONFIG.path}homeAnimations.js`)
-const { aboutIntroInit, aboutIntroAnimation } = await import(`${CONFIG.path}aboutAnimations.js`);
-const { locationsIntroInit, locationsIntroAnimation } = await import(`${CONFIG.path}locationsAnimations.js`);
-const { contactIntroInit, contactIntroAnimation } = await import(`${CONFIG.path}contactAnimations.js`);
-const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await import(`${CONFIG.path}graphicDesignAnimations.js`);
-const { webDesignIntroInit, webDesignIntroAnimation } = await import(`${CONFIG.path}webDesignAnimations.js`);
-const { appDesignIntroInit, appDesignIntroAnimation } = await import(`${CONFIG.path}appDesignAnimations.js`);
-const { locationBtnsInit } = await import(`${CONFIG.path}location-btns.js`);
+const { contactFormInit } = await import(`${CONFIG.path}${CONFIG.pathJs}contact-form.js`)
+const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}homeAnimations.js`)
+const { aboutIntroInit, aboutIntroAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}aboutAnimations.js`);
+const { locationsIntroInit, locationsIntroAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}locationsAnimations.js`);
+const { contactIntroInit, contactIntroAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}contactAnimations.js`);
+const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}graphicDesignAnimations.js`);
+const { webDesignIntroInit, webDesignIntroAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}webDesignAnimations.js`);
+const { appDesignIntroInit, appDesignIntroAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}appDesignAnimations.js`);
+const { locationBtnsInit } = await import(`${CONFIG.path}${CONFIG.pathJs}location-btns.js`);
 
 const {
     // textSplit,
@@ -18,24 +18,25 @@ const {
     addScriptsToBody,
     addFilesCssToBody,
     removeCssFilesFromBody
-} = await import(`${CONFIG.path}utilities.js`);
+} = await import(`${CONFIG.path}${CONFIG.pathJs}utilities.js`);
 
 
 const {
     introOverlayFadeIn,
     animationColumnsEnter,
     // transitionAnimationReset
-} = await import(`${CONFIG.path}commonAnimations.js`);
+} = await import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations.js`);
 
 
-const homeJsFileUrl = `${CONFIG.path}homeAnimations.js`
-const aboutJsFileUrl = `${CONFIG.path}aboutAnimations.js`
-const locationsJsFileUrl = `${CONFIG.path}locationsAnimations.js`
-const contactJsFileUrl = `${CONFIG.path}contactAnimations.js`
-const locationBtnsJsFileUrl = `${CONFIG.path}location-btns.js`
-const designJsFileUrl = `${CONFIG.path}designAnimations.js`
-const designCssFileUrl = `${CONFIG.path}design.css`
-const locationsCssFileUrl = `${CONFIG.path}locations.css`
+const homeJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}homeAnimations.js`
+const aboutJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}aboutAnimations.js`
+const locationsJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}locationsAnimations.js`
+const contactJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}contactAnimations.js`
+const locationBtnsJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}location-btns.js`
+const designJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}designAnimations.js`
+
+const designCssFileUrl = `${CONFIG.path}${CONFIG.pathCss}design${CONFIG.cssPostFix}.css`
+const locationsCssFileUrl = `${CONFIG.path}${CONFIG.pathCss}locations${CONFIG.cssPostFix}.css`
 
 
 barba.hooks.beforeEnter(async function (data) {
