@@ -40,11 +40,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     const designCssFileUrl = `${CONFIG.path}${CONFIG.pathCss}design${CONFIG.cssPostFix}.css`
     const locationsCssFileUrl = `${CONFIG.path}${CONFIG.pathCss}locations${CONFIG.cssPostFix}.css`
 
+    const navmenu = document.querySelector('.nav-menu-mobile')
 
     barba.hooks.beforeEnter(async function (data) {
         // console.log('beforeEnter')
         // window.scrollTo(0, 0); // Scroll to the top of the page
         // console.log('data.next.namespace:', data.next.namespace)
+
+        gsap.to(navmenu, {
+            opacity: 0,
+            duration: 0.25,
+            ease: 'power2.inOut'
+        })
+        
         if (data.next.namespace === 'home') {
             homeIntroInit(data.next.container)
         } else if (data.next.namespace === 'about') {
