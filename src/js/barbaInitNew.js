@@ -1115,7 +1115,7 @@ const transitionAnimationReset = () => {
 
 
 
-const homeJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}homeAnimations.js`
+// const homeJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}homeAnimations.js`
 const aboutJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}aboutAnimations.js`
 const locationsJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}locationsAnimations.js`
 const contactJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}contactAnimations.js`
@@ -1181,11 +1181,11 @@ barba.hooks.afterEnter(function (data) {
 
     // console.log(nextPageId.includes('design') && !currentPageId.includes('design'))
 
-    if (nextPageId === 'home') {
-        addScriptsToBody([homeJsFileUrl]);
-    } else {
-        removeScriptsFromBody([homeJsFileUrl]);
-    }
+    // if (nextPageId === 'home') {
+    //     addScriptsToBody([homeJsFileUrl]);
+    // } else {
+    //     removeScriptsFromBody([homeJsFileUrl]);
+    // }
     if (nextPageId === 'locations') {
         addScriptsToBody([locationsJsFileUrl]);
         addFilesCssToBody([locationsCssFileUrl]);
