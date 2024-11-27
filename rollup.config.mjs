@@ -22,7 +22,7 @@ export default {
   ],
   output: {
     dir: 'dist/js',
-    format: 'es',
+    format: 'cjs',
     entryFileNames: '[name].js'
   },
   plugins: [
