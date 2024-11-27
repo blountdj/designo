@@ -1,0 +1,1 @@
+div.webdesign_main_card:hover div.webdesign_main_card_text_wrapper{background-color:var(--secondary-peach)}div.webdesign_main_card:hover img.image-6{transform:scale(1.1)}.webdesign_main_card_text,.webdesign_main_h2,img.image-6{transition:transform .3s ease-in-out}div.webdesign_main_card:hover .webdesign_main_card_text,div.webdesign_main_card:hover .webdesign_main_h2{color:#fff}
