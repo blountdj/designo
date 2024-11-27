@@ -1,6 +1,6 @@
 // console.log('locationsAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v14/src/js/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v15/src/js/config.js";
 
 // function importModule(modulePath) {
 //     return new Promise((resolve, reject) => {

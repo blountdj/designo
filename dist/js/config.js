@@ -1,1 +1,1 @@
-var s={barbaDebug:!1,path:"https://cdn.jsdelivr.net/gh/blountdj/designo@v14/",pathJs:"dist/js/",pathCss:"dist/css/",cssPostFix:".min"};export{s as CONFIG};
+var s={barbaDebug:!1,path:"https://cdn.jsdelivr.net/gh/blountdj/designo@v15/",pathJs:"dist/js/",pathCss:"dist/css/",cssPostFix:".min"};export{s as CONFIG};
