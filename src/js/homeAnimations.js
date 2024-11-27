@@ -1,6 +1,6 @@
 // console.log('homeAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v16/src/js/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v17/src/js/config.js";
 
 
 const {
@@ -14,7 +14,7 @@ const {
 } = await import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations.js`)
 
 
-module.exports = function homeIntroInit(container) {
+export const homeIntroInit = (container) => {
     // console.log('homeIntroInit')
 
     /* Intro Logo */
@@ -73,7 +73,7 @@ module.exports = function homeIntroInit(container) {
 
 }
 
-module.exports = function homeIntroAnimation() {
+export const homeIntroAnimation = () => {
     // console.log('homeIntroAnimation')
 
     return new Promise((resolve) => {
@@ -85,7 +85,7 @@ module.exports = function homeIntroAnimation() {
     })
 }
 
-module.exports = function homeTransitionAnimation(type) {
+export const homeTransitionAnimation = (type) => {
     // console.log('homeTransitionAnimation')
 
     const delay = type === 'once' ? 0 : 2.25
