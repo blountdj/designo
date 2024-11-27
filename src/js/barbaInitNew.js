@@ -1116,11 +1116,11 @@ const transitionAnimationReset = () => {
 
 
 // const homeJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}homeAnimations.js`
-const aboutJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}aboutAnimations.js`
-const locationsJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}locationsAnimations.js`
-const contactJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}contactAnimations.js`
+// const aboutJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}aboutAnimations.js`
+// const locationsJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}locationsAnimations.js`
+// const contactJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}contactAnimations.js`
 // const locationBtnsJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}location-btns.js`
-const designJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}designAnimations.js`
+// const designJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}designAnimations.js`
 
 const designCssFileUrl = `${CONFIG.path}${CONFIG.pathCss}design${CONFIG.cssPostFix}.css`
 const locationsCssFileUrl = `${CONFIG.path}${CONFIG.pathCss}locations${CONFIG.cssPostFix}.css`
@@ -1187,29 +1187,29 @@ barba.hooks.afterEnter(function (data) {
     //     removeScriptsFromBody([homeJsFileUrl]);
     // }
     if (nextPageId === 'locations') {
-        addScriptsToBody([locationsJsFileUrl]);
+        // addScriptsToBody([locationsJsFileUrl]);
         addFilesCssToBody([locationsCssFileUrl]);
     } else {
-        removeScriptsFromBody([locationsJsFileUrl]);
+        // removeScriptsFromBody([locationsJsFileUrl]);
         removeCssFilesFromBody([locationsCssFileUrl]);
     }
-    if (nextPageId === 'about') {
-        addScriptsToBody([aboutJsFileUrl]);
-    } else {
-        removeScriptsFromBody([aboutJsFileUrl]);
-    }
+    // if (nextPageId === 'about') {
+    //     addScriptsToBody([aboutJsFileUrl]);
+    // } else {
+    //     removeScriptsFromBody([aboutJsFileUrl]);
+    // }
     if (nextPageId === 'contact') {
-        addScriptsToBody([contactJsFileUrl]);
+        // addScriptsToBody([contactJsFileUrl]);
         contactFormInit(data.next.container)
     } else {
-        removeScriptsFromBody([contactJsFileUrl]);
+        // removeScriptsFromBody([contactJsFileUrl]);
     }
 
     if (nextPageId.includes('design') && !currentPageId.includes('design')) {
-        addScriptsToBody([designJsFileUrl]);
+        // addScriptsToBody([designJsFileUrl]);
         addFilesCssToBody([designCssFileUrl]);
     } else if (currentPageId.includes('design') && !nextPageId.includes('design')) {
-        removeScriptsFromBody([designJsFileUrl]);
+        // removeScriptsFromBody([designJsFileUrl]);
         removeCssFilesFromBody([designCssFileUrl]);
     }
 });
