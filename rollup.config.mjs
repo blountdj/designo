@@ -28,9 +28,17 @@ export default {
   plugins: [
     nodeResolve(),
     babel({
-      babelHelpers: 'bundled',
-      extensions: ['.js'],
-      presets: ['@babel/preset-env']
+      babelHelpers: 'runtime',
+      plugins: [
+        '@babel/plugin-transform-runtime',
+      ],
+      presets: [
+        ['@babel/preset-env', {
+          targets: "> 0.25%, not dead",
+          useBuiltIns: 'usage',
+          corejs: 3
+        }]
+      ]
     }),
     terser()
   ]
