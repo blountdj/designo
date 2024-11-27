@@ -1,21 +1,93 @@
 // console.log('homeAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v20/src/js/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v21/src/js/config.js";
 
 
-const {
-    introLogoFadeIn,
-    navBarLinksFadeIn,
-    xPercentOpacityReturn,
-    yPercentOpacityReturn,
-    animationColumnsEnter,
-    scaleTo1,
-    transitionAnimationReset
-} = await import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations.js`)
+// let introLogoFadeIn, navBarLinksFadeIn, xPercentOpacityReturn, yPercentOpacityReturn, 
+//     animationColumnsEnter, scaleTo1, transitionAnimationReset;
+
+// import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations.js`)
+// .then(({ 
+//     introLogoFadeIn: _introLogoFadeIn, 
+//     navBarLinksFadeIn: _navBarLinksFadeIn, 
+//     xPercentOpacityReturn: _xPercentOpacityReturn, 
+//     yPercentOpacityReturn: _yPercentOpacityReturn, 
+//     animationColumnsEnter: _animationColumnsEnter, 
+//     scaleTo1: _scaleTo1, 
+//     transitionAnimationReset: _transitionAnimationReset 
+//   }) => {
+//     // Assign to global variables
+//     window.introLogoFadeIn = _introLogoFadeIn;
+//     window.navBarLinksFadeIn = _navBarLinksFadeIn;
+//     window.xPercentOpacityReturn = _xPercentOpacityReturn;
+//     window.yPercentOpacityReturn = _yPercentOpacityReturn;
+//     window.animationColumnsEnter = _animationColumnsEnter;
+//     window.scaleTo1 = _scaleTo1;
+//     window.transitionAnimationReset = _transitionAnimationReset;
+//   }
+// .catch(error => console.error('Failed to import commonAnimations.js:', error));
+
+// const {
+//     introLogoFadeIn,
+//     navBarLinksFadeIn,
+//     xPercentOpacityReturn,
+//     yPercentOpacityReturn,
+//     animationColumnsEnter,
+//     scaleTo1,
+//     transitionAnimationReset
+// } = await import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations.js`)
+
+
+// import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations.js`)
+//  .then(({ introLogoFadeIn,
+//     navBarLinksFadeIn,
+//     xPercentOpacityReturn,
+//     yPercentOpacityReturn,
+//     animationColumnsEnter,
+//     scaleTo1,
+//     transitionAnimationReset }) => {
+//     // Use contactFormInit
+//     introLogoFadeIn = introLogoFadeIn, 
+//     navBarLinksFadeIn = navBarLinksFadeIn, 
+//     xPercentOpacityReturn = xPercentOpacityReturn, 
+//     yPercentOpacityReturn = yPercentOpacityReturn, 
+//     animationColumnsEnter = animationColumnsEnter, 
+//     scaleTo1 = scaleTo1, 
+//     transitionAnimationReset = transitionAnimationReset
+//   })
+
+let animations = {};
+
+import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations.js`)
+    .then(({
+        introLogoFadeIn,
+        navBarLinksFadeIn,
+        xPercentOpacityReturn,
+        yPercentOpacityReturn,
+        animationColumnsEnter,
+        scaleTo1,
+        transitionAnimationReset
+    }) => {
+        // Store the imported functions in the 'animations' object
+        animations = {
+            introLogoFadeIn,
+            navBarLinksFadeIn,
+            xPercentOpacityReturn,
+            yPercentOpacityReturn,
+            animationColumnsEnter,
+            scaleTo1,
+            transitionAnimationReset
+        };
+        // Notify that imports are ready (optional, but useful for debugging)
+        console.log('Animations imported and ready to use.');
+    })
+    .catch(error => console.error('Failed to import commonAnimations.js:', error));
 
 
 export const homeIntroInit = (container) => {
     // console.log('homeIntroInit')
+
+
 
     /* Intro Logo */
     const introLogo = document.querySelector('.intro-logo')
@@ -73,17 +145,36 @@ export const homeIntroInit = (container) => {
 
 }
 
-export const homeIntroAnimation = () => {
-    // console.log('homeIntroAnimation')
+// export const homeIntroAnimation = () => {
+//     // console.log('homeIntroAnimation')
 
+//     return new Promise((resolve) => {
+//         gsap.timeline({
+//             onComplete: resolve
+//         })
+//             .add(() => introLogoFadeIn())
+//             .add(() => animationColumnsEnter(), 1.0)
+//     })
+// }
+
+export const homeIntroAnimation = () => {
     return new Promise((resolve) => {
-        gsap.timeline({
-            onComplete: resolve
-        })
-            .add(() => introLogoFadeIn())
-            .add(() => animationColumnsEnter(), 1.0)
-    })
-}
+        // Check if animations are ready
+        const checkAndAnimate = () => {
+            if (Object.keys(animations).length > 0) {
+                gsap.timeline({
+                    onComplete: resolve
+                })
+                    .add(() => animations.introLogoFadeIn())
+                    .add(() => animations.animationColumnsEnter(), 1.0);
+            } else {
+                // If not ready, check again after a short delay
+                globalThis.setTimeout(checkAndAnimate, 50);
+            }
+        };
+        checkAndAnimate();
+    });
+};
 
 export const homeTransitionAnimation = (type) => {
     // console.log('homeTransitionAnimation')
@@ -92,19 +183,31 @@ export const homeTransitionAnimation = (type) => {
 
     // console.log('delay:', delay)
 
-    gsap.timeline()
-        .add(() => transitionAnimationReset(), 2.25 - delay) // 2.25
-        .add(() => scaleTo1('.home_section_hero'), 2.5 - delay) // 2.5
-        .add(gsap.set('div.navbar.w-nav', { opacity: 1, zIndex: 1000 }), 2.95 - delay) // 2.95
-        .add(() => navBarLinksFadeIn(), 3.0 - delay) // 3.0
-        .add(() => xPercentOpacityReturn('.home-hero-bg-circle'), 3.5 - delay) // 3.5
-        .add(() => yPercentOpacityReturn('.hero-image-wrapper'), 3.75 - delay) // 3.75
-        .add(() => xPercentOpacityReturn('.home-h1'), 4 - delay) // 4
-        .add(() => xPercentOpacityReturn('.home-hero-paragraph'), 4.25 - delay)
-        .add(() => xPercentOpacityReturn('.btn-wrapper'), 4.5 - delay)
+    const checkAndAnimate = () => {
+        if (Object.keys(animations).length > 0) {
+            gsap.timeline({
+                onComplete: resolve
+            })
 
-        .add(() => xPercentOpacityReturn('div.home-grid-card-large'), 4.7 - delay)
-        .add(() => xPercentOpacityReturn('div.home-grid-card-small.is-appdesign'), 5 - delay)
-        .add(() => xPercentOpacityReturn('div.home-grid-card-small.is-graphicdesign'), 4.85 - delay)
+            gsap.timeline()
+                .add(() => transitionAnimationReset(), 2.25 - delay) // 2.25
+                .add(() => scaleTo1('.home_section_hero'), 2.5 - delay) // 2.5
+                .add(gsap.set('div.navbar.w-nav', { opacity: 1, zIndex: 1000 }), 2.95 - delay) // 2.95
+                .add(() => navBarLinksFadeIn(), 3.0 - delay) // 3.0
+                .add(() => xPercentOpacityReturn('.home-hero-bg-circle'), 3.5 - delay) // 3.5
+                .add(() => yPercentOpacityReturn('.hero-image-wrapper'), 3.75 - delay) // 3.75
+                .add(() => xPercentOpacityReturn('.home-h1'), 4 - delay) // 4
+                .add(() => xPercentOpacityReturn('.home-hero-paragraph'), 4.25 - delay)
+                .add(() => xPercentOpacityReturn('.btn-wrapper'), 4.5 - delay)
+
+                .add(() => xPercentOpacityReturn('div.home-grid-card-large'), 4.7 - delay)
+                .add(() => xPercentOpacityReturn('div.home-grid-card-small.is-appdesign'), 5 - delay)
+                .add(() => xPercentOpacityReturn('div.home-grid-card-small.is-graphicdesign'), 4.85 - delay)
+        } else {
+            // If not ready, check again after a short delay
+            globalThis.setTimeout(checkAndAnimate, 50);
+        }
+    };
+    checkAndAnimate();
 }
 
