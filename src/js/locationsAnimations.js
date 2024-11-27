@@ -1,28 +1,6 @@
 // console.log('locationsAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v22/src/js/config.js";
-
-// function importModule(modulePath) {
-//     return new Promise((resolve, reject) => {
-//         const script = document.createElement('script');
-//         script.type = 'module';
-//         script.src = modulePath;
-//         script.onload = () => {
-//             // Assuming the module exports are globally available
-//             resolve(window);
-//         };
-//         script.onerror = reject;
-//         document.head.appendChild(script);
-//     });
-// }
-
-
-// const {
-//     navBarLinksFadeIn,
-//     xPercentOpacityReturn,
-//     yPercentOpacityReturn,
-//     animationColumnsLeave
-// } = await importModule(`${CONFIG.path}commonAnimations.js`)
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v23/src/js/config.js";
 
 const {
     navBarLinksFadeIn,
@@ -102,7 +80,6 @@ export const locationsIntroInit = (container) => {
     addBorderAnimation(ukMain, ukMap);
 }
 
-
 export const locationsIntroAnimation = (container) => {
     // console.log('locationsIntroAnimation')
     gsap.timeline()
@@ -140,7 +117,6 @@ export const locationsIntroAnimation = (container) => {
         .add(() => xPercentOpacityReturn('.location_text_wrapper.is-uk > .locations_addresses_wrapper'), 2.5)
         .add(() => yPercentOpacityReturn('.location_text_wrapper.is-uk > .locations_addresses_wrapper'), 2.5)
 }
-
 
 /* Hover Animations */
 function addBorderAnimation(mainElement, mapElement) {

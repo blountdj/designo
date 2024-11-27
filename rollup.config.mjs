@@ -8,6 +8,7 @@ export default {
   input: ['src/js/aboutAnimations.js',
     'src/js/appDesignAnimations.js',
     'src/js/barbaInit.js',
+    'src/js/barbaInitNew.js',
     'src/js/commonAnimations.js',
     'src/js/config.js',
     'src/js/contact-form.js',

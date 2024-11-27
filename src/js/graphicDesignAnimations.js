@@ -1,28 +1,6 @@
 // console.log('contactAnimations.js')
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v22/src/js/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v23/src/js/config.js";
 
-// function importModule(modulePath) {
-//     return new Promise((resolve, reject) => {
-//         const script = document.createElement('script');
-//         script.type = 'module';
-//         script.src = modulePath;
-//         script.onload = () => {
-//             // Assuming the module exports are globally available
-//             resolve(window);
-//         };
-//         script.onerror = reject;
-//         document.head.appendChild(script);
-//     });
-// }
-
-// const {
-//     navBarLinksFadeIn,
-//     xPercentOpacityReturn,
-//     yPercentOpacityReturn,
-//     scaleTo1,
-//     yPercentOpacityReturnStaggered,
-//     transitionAnimationReset
-// } = await importModule(`${CONFIG.path}commonAnimations.js`)
 
 const {
     navBarLinksFadeIn,

@@ -1,7 +1,7 @@
 export const CONFIG = {
   barbaDebug: false,
   // path: './',
-  path: 'https://cdn.jsdelivr.net/gh/blountdj/designo@v22/',
+  path: 'https://cdn.jsdelivr.net/gh/blountdj/designo@v23/',
   // pathJs: '',
   pathJs: 'dist/js/',
   // pathCss: '',
