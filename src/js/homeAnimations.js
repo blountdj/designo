@@ -1,6 +1,6 @@
 // console.log('homeAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v15/src/js/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v16/src/js/config.js";
 
 
 const {
@@ -11,7 +11,7 @@ const {
     animationColumnsEnter,
     scaleTo1,
     transitionAnimationReset
-} = await import(`${CONFIG.path}${CONFIG.path}commonAnimations.js`)
+} = await import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations.js`)
 
 
 module.exports = function homeIntroInit(container) {

@@ -1,6 +1,6 @@
 // console.log('locationsAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v15/src/js/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v16/src/js/config.js";
 
 // function importModule(modulePath) {
 //     return new Promise((resolve, reject) => {
@@ -29,7 +29,7 @@ const {
     xPercentOpacityReturn,
     yPercentOpacityReturn,
     animationColumnsLeave
-} = await import(`${CONFIG.path}${CONFIG.path}commonAnimations.js`)
+} = await import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations.js`)
 
 export const locationsIntroInit = (container) => {
     // console.log('locationsIntroInit')
