@@ -1,6 +1,6 @@
 // console.log('barbaInit.js loaded')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v23/src/js/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v24/dist/js/config.min.js";
 
 // const { contactFormInit } = await import(`${CONFIG.path}${CONFIG.pathJs}contact-form.js`)
 
@@ -1125,19 +1125,19 @@ const transitionAnimationReset = () => {
 const designCssFileUrl = `${CONFIG.path}${CONFIG.pathCss}design${CONFIG.cssPostFix}.css`
 const locationsCssFileUrl = `${CONFIG.path}${CONFIG.pathCss}locations${CONFIG.cssPostFix}.css`
 
-const navmenu = document.querySelector('.nav-menu-mobile')
+// const navmenu = document.querySelector('.nav-menu-mobile')
 
 barba.hooks.beforeEnter(async function (data) {
     // console.log('beforeEnter')
     // window.scrollTo(0, 0); // Scroll to the top of the page
     // console.log('data.next.namespace:', data.next.namespace)
 
-    gsap.to(navmenu, {
-        opacity: 0,
-        yPercent: -105,
-        duration: 0.25,
-        ease: 'power2.inOut'
-    })
+    // gsap.to(navmenu, {
+    //     opacity: 0,
+    //     yPercent: -105,
+    //     duration: 0.25,
+    //     ease: 'power2.inOut'
+    // })
 
     if (data.next.namespace === 'home') {
         homeIntroInit(data.next.container)

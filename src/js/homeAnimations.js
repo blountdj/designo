@@ -1,8 +1,6 @@
 // console.log('homeAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v23/src/js/config.js";
-
-
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v24/dist/js/config.min.js";
 
 const {
     introLogoFadeIn,
@@ -12,9 +10,7 @@ const {
     animationColumnsEnter,
     scaleTo1,
     transitionAnimationReset
-} = await import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations.js`)
-
-
+} = await import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations${CONFIG.jsPostFix}.js`)
 
 
 export const homeIntroInit = (container) => {
@@ -98,7 +94,7 @@ export const homeTransitionAnimation = (type) => {
     gsap.timeline()
         .add(() => transitionAnimationReset(), 2.25 - delay) // 2.25
         .add(() => scaleTo1('.home_section_hero'), 2.5 - delay) // 2.5
-        .add(gsap.set('div.navbar.w-nav', { opacity: 1, zIndex: 1000 }), 2.95 - delay) // 2.95
+        .add(gsap.set('div.navbar.w-nav', { opacity: 1, zIndex: 1000 }), 2.5 - delay) // 2.95
         .add(() => navBarLinksFadeIn(), 3.0 - delay) // 3.0
         .add(() => xPercentOpacityReturn('.home-hero-bg-circle'), 3.5 - delay) // 3.5
         .add(() => yPercentOpacityReturn('.hero-image-wrapper'), 3.75 - delay) // 3.75

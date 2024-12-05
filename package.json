@@ -23,5 +23,8 @@
     "@rollup/plugin-terser": "^0.4.4",
     "core-js": "^3.39.0",
     "rollup": "^4.27.4"
+  },
+  "dependencies": {
+    "mkcert": "^3.2.0"
   }
 }

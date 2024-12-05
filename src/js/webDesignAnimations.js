@@ -1,6 +1,6 @@
 // console.log('contactAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v23/src/js/config.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v24/dist/js/config.min.js";
 
 const {
     navBarLinksFadeIn,
@@ -9,7 +9,7 @@ const {
     scaleTo1,
     yPercentOpacityReturnStaggered,
     transitionAnimationReset
-} = await import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations.js`)
+} = await import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations${CONFIG.jsPostFix}.js`)
 
 
 export const webDesignIntroInit = (container) => {
