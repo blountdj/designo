@@ -1,40 +1,40 @@
 // console.log('barbaInit.js loaded')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v27/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v28/dist/js/config.min.js";
 // import { CONFIG } from "./config.js";
 
-const { contactFormInit } = await import(`${CONFIG.path}contact-form.js`)
-const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await import(`${CONFIG.path}homeAnimations${CONFIG.jsPostFix}.js`)
-const { aboutIntroInit, aboutIntroAnimation } = await import(`${CONFIG.path}aboutAnimations${CONFIG.jsPostFix}.js`);
-const { locationsIntroInit, locationsIntroAnimation } = await import(`${CONFIG.path}locationsAnimations${CONFIG.jsPostFix}.js`);
-const { contactIntroInit, contactIntroAnimation } = await import(`${CONFIG.path}contactAnimations${CONFIG.jsPostFix}.js`);
-const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await import(`${CONFIG.path}graphicDesignAnimations${CONFIG.jsPostFix}.js`);
-const { webDesignIntroInit, webDesignIntroAnimation } = await import(`${CONFIG.path}webDesignAnimations${CONFIG.jsPostFix}.js`);
-const { appDesignIntroInit, appDesignIntroAnimation } = await import(`${CONFIG.path}appDesignAnimations${CONFIG.jsPostFix}.js`);
-const { locationBtnsInit } = await import(`${CONFIG.path}location-btns${CONFIG.jsPostFix}.js`);
-const { initNavMenu, toggleNavMenu } = await import(`${CONFIG.path}nav-bar${CONFIG.jsPostFix}.js`);
+const { contactFormInit } = await import(`${CONFIG.path}${CONFIG.jsFolder}contact-form${CONFIG.jsPostFix}.js`)
+const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}homeAnimations${CONFIG.jsPostFix}.js`)
+const { aboutIntroInit, aboutIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}aboutAnimations${CONFIG.jsPostFix}.js`);
+const { locationsIntroInit, locationsIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}locationsAnimations${CONFIG.jsPostFix}.js`);
+const { contactIntroInit, contactIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}contactAnimations${CONFIG.jsPostFix}.js`);
+const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}graphicDesignAnimations${CONFIG.jsPostFix}.js`);
+const { webDesignIntroInit, webDesignIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}webDesignAnimations${CONFIG.jsPostFix}.js`);
+const { appDesignIntroInit, appDesignIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}appDesignAnimations${CONFIG.jsPostFix}.js`);
+const { locationBtnsInit } = await import(`${CONFIG.path}${CONFIG.jsFolder}location-btns${CONFIG.jsPostFix}.js`);
+const { initNavMenu, toggleNavMenu } = await import(`${CONFIG.path}${CONFIG.jsFolder}nav-bar${CONFIG.jsPostFix}.js`);
 const {
     // textSplit,
     removeScriptsFromBody,
     addScriptsToBody,
     addFilesCssToBody,
     removeCssFilesFromBody
-} = await import(`${CONFIG.path}utilities${CONFIG.jsPostFix}.js`);
+} = await import(`${CONFIG.path}${CONFIG.jsFolder}utilities${CONFIG.jsPostFix}.js`);
 
 
 const {
     introOverlayFadeIn,
     animationColumnsEnter,
     // transitionAnimationReset
-} = await import(`${CONFIG.path}commonAnimations${CONFIG.jsPostFix}.js`);
+} = await import(`${CONFIG.path}${CONFIG.jsFolder}commonAnimations${CONFIG.jsPostFix}.js`);
 
 
-// const homeJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}homeAnimations.js`
-// const aboutJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}aboutAnimations.js`
-// const locationsJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}locationsAnimations.js`
-// const contactJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}contactAnimations.js`
-// const locationBtnsJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}location-btns.js`
-// const designJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}designAnimations.js`
+// const homeJsFileUrl = `${CONFIG.path}${CONFIG.jsFolder}homeAnimations.js`
+// const aboutJsFileUrl = `${CONFIG.path}${CONFIG.jsFolder}aboutAnimations.js`
+// const locationsJsFileUrl = `${CONFIG.path}${CONFIG.jsFolder}locationsAnimations.js`
+// const contactJsFileUrl = `${CONFIG.path}${CONFIG.jsFolder}contactAnimations.js`
+// const locationBtnsJsFileUrl = `${CONFIG.path}${CONFIG.jsFolder}location-btns.js`
+// const designJsFileUrl = `${CONFIG.path}${CONFIG.jsFolder}designAnimations.js`
 
 const designCssFileUrl = `${CONFIG.cssPath}${CONFIG.cssFolder}css/design${CONFIG.cssPostFix}.css`
 const locationsCssFileUrl = `${CONFIG.cssPath}${CONFIG.cssFolder}css/locations${CONFIG.cssPostFix}.css`

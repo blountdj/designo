@@ -1,8 +1,8 @@
 // console.log('barbaInit.js loaded')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v27/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v28/dist/js/config.min.js";
 
-// const { contactFormInit } = await import(`${CONFIG.path}${CONFIG.pathJs}contact-form.js`)
+// const { contactFormInit } = await import(`${CONFIG.path}${CONFIG.jsFolder}contact-form.js`)
 
 const contactFormInit = (container) => {
     // console.log('contactFormInit');
@@ -244,7 +244,7 @@ function checkMessageInput(input, wrapper, textElem) {
     }
 }
 
-// const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}homeAnimations.js`)
+// const { homeIntroInit, homeIntroAnimation, homeTransitionAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}homeAnimations.js`)
 
 const homeIntroInit = (container) => {
     // console.log('homeIntroInit')
@@ -339,7 +339,7 @@ const homeTransitionAnimation = (type) => {
         .add(() => xPercentOpacityReturn('div.home-grid-card-small.is-graphicdesign'), 4.85 - delay)
 }
 
-// const { aboutIntroInit, aboutIntroAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}aboutAnimations.js`);
+// const { aboutIntroInit, aboutIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}aboutAnimations.js`);
 
 const aboutIntroInit = (container) => {
     // console.log('aboutIntroInit')
@@ -417,7 +417,7 @@ const aboutIntroAnimation = () => {
         .add(() => unMaskToRight('.about-worldclass-mask'), 2.85 + delay)
 }
 
-// const { locationsIntroInit, locationsIntroAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}locationsAnimations.js`);
+// const { locationsIntroInit, locationsIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}locationsAnimations.js`);
 
 const locationsIntroInit = (container) => {
     // console.log('locationsIntroInit')
@@ -588,7 +588,7 @@ function addBorderAnimation(mainElement, mapElement) {
 }
 
 
-// const { contactIntroInit, contactIntroAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}contactAnimations.js`);
+// const { contactIntroInit, contactIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}contactAnimations.js`);
 
 const contactIntroInit = () => {
     // console.log('contactIntroInit')
@@ -667,7 +667,7 @@ const contactIntroAnimation = () => {
         .add(() => yPercentOpacityReturnStaggered('.about-attributes-card'), 2.2)
 }
 
-// const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}graphicDesignAnimations.js`);
+// const { graphicDesignIntroInit, graphicDesignIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}graphicDesignAnimations.js`);
 
 const graphicDesignIntroInit = (container) => {
     // console.log('graphicDesignIntroInit')
@@ -744,7 +744,7 @@ const graphicDesignIntroAnimation = () => {
         .add(() => scaleTo1('img.image-6', true), 1.75)
 }
 
-// const { webDesignIntroInit, webDesignIntroAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}webDesignAnimations.js`);
+// const { webDesignIntroInit, webDesignIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}webDesignAnimations.js`);
 
 const webDesignIntroInit = (container) => {
     // console.log('webDesignIntroInit')
@@ -823,7 +823,7 @@ const webDesignIntroAnimation = () => {
         .add(() => scaleTo1('img.image-6', true), 1.75)
 }
 
-// const { appDesignIntroInit, appDesignIntroAnimation } = await import(`${CONFIG.path}${CONFIG.pathJs}appDesignAnimations.js`);
+// const { appDesignIntroInit, appDesignIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}appDesignAnimations.js`);
 
 const appDesignIntroInit = (container) => {
     // console.log('appDesignIntroInit')
@@ -901,7 +901,7 @@ const appDesignIntroAnimation = () => {
         .add(() => scaleTo1('img.image-6', true), 1.65)
 }
 
-// const { locationBtnsInit } = await import(`${CONFIG.path}${CONFIG.pathJs}location-btns.js`);
+// const { locationBtnsInit } = await import(`${CONFIG.path}${CONFIG.jsFolder}location-btns.js`);
 
 const locationBtnsInit = (container) => {
 
@@ -925,7 +925,7 @@ const locationBtnsInit = (container) => {
 //     addScriptsToBody,
 //     addFilesCssToBody,
 //     removeCssFilesFromBody
-// } = await import(`${CONFIG.path}${CONFIG.pathJs}utilities.js`);
+// } = await import(`${CONFIG.path}${CONFIG.jsFolder}utilities.js`);
 
 function removeScriptsFromBody(scripts) {
     scripts.forEach(script => {
@@ -971,7 +971,7 @@ function removeCssFilesFromBody(cssFiles) {
 //     introOverlayFadeIn,
 //     animationColumnsEnter,
 //     // transitionAnimationReset
-// } = await import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations.js`);
+// } = await import(`${CONFIG.path}${CONFIG.jsFolder}commonAnimations.js`);
 
 const introLogoFadeIn = () => {
     const introLogo = document.querySelector('.intro-logo')
@@ -1115,12 +1115,12 @@ const transitionAnimationReset = () => {
 
 
 
-// const homeJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}homeAnimations.js`
-// const aboutJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}aboutAnimations.js`
-// const locationsJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}locationsAnimations.js`
-// const contactJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}contactAnimations.js`
-// const locationBtnsJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}location-btns.js`
-// const designJsFileUrl = `${CONFIG.path}${CONFIG.pathJs}designAnimations.js`
+// const homeJsFileUrl = `${CONFIG.path}${CONFIG.jsFolder}homeAnimations.js`
+// const aboutJsFileUrl = `${CONFIG.path}${CONFIG.jsFolder}aboutAnimations.js`
+// const locationsJsFileUrl = `${CONFIG.path}${CONFIG.jsFolder}locationsAnimations.js`
+// const contactJsFileUrl = `${CONFIG.path}${CONFIG.jsFolder}contactAnimations.js`
+// const locationBtnsJsFileUrl = `${CONFIG.path}${CONFIG.jsFolder}location-btns.js`
+// const designJsFileUrl = `${CONFIG.path}${CONFIG.jsFolder}designAnimations.js`
 
 const designCssFileUrl = `${CONFIG.path}${CONFIG.pathCss}design${CONFIG.cssPostFix}.css`
 const locationsCssFileUrl = `${CONFIG.path}${CONFIG.pathCss}locations${CONFIG.cssPostFix}.css`

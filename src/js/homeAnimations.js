@@ -1,6 +1,6 @@
 // console.log('homeAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v27/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v28/dist/js/config.min.js";
 
 const {
     introLogoFadeIn,
@@ -10,7 +10,7 @@ const {
     animationColumnsEnter,
     scaleTo1,
     transitionAnimationReset
-} = await import(`${CONFIG.path}${CONFIG.pathJs}commonAnimations${CONFIG.jsPostFix}.js`)
+} = await import(`${CONFIG.path}${CONFIG.jsFolder}commonAnimations${CONFIG.jsPostFix}.js`)
 
 
 export const homeIntroInit = (container) => {
