@@ -1,6 +1,6 @@
 // console.log('contactAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v24/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v27/dist/js/config.min.js";
 
 const {
     navBarLinksFadeIn,
