@@ -1,6 +1,6 @@
 // console.log('locationsAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v28/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v29/dist/js/config.min.js";
 
 const {
     navBarLinksFadeIn,
