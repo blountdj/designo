@@ -8,7 +8,7 @@ overlay.style.display = 'none';
 let menuState = 'closed'
 
 export const toggleNavMenu = () => {
-    console.log('toggleNavMenu: menuState', menuState)
+    // console.log('toggleNavMenu: menuState', menuState)
     if (menuState === 'closed') {
         // console.log('menu clicked - opening')
         overlay.style.display = 'block';
