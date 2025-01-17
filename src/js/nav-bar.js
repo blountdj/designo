@@ -5,7 +5,7 @@ const overlay = document.getElementById('overlay');
 const navMobileMenu = document.getElementById('nav-menu-mobile');
 const hamburgerIcon = document.querySelector('#hamburger-icon');
 overlay.style.display = 'none';
-let menuState = 'closed'
+let menuState = 'closed';
 
 export const toggleNavMenu = () => {
     // console.log('toggleNavMenu: menuState', menuState)
