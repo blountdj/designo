@@ -1,6 +1,6 @@
 // console.log('barbaInit.js loaded')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v32/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v33/dist/js/config.min.js";
 
 // const { contactFormInit } = await import(`${CONFIG.path}${CONFIG.jsFolder}contact-form.js`)
 

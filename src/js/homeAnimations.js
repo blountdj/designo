@@ -1,6 +1,6 @@
 // console.log('homeAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v32/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v33/dist/js/config.min.js";
 
 const {
     introLogoFadeIn,
@@ -29,7 +29,7 @@ export const homeIntroInit = (container) => {
     const heroImageWrapper = container.querySelector('.hero-image-wrapper')
     const homeH1 = container.querySelector('.home-h1')
     const homeHeroParagraph = container.querySelector('.home-hero-paragraph')
-    const homeHeroBtn = container.querySelector('.btn_light')
+    const homeHeroBtn = container.querySelector('.button_light')
     const homeHeroBgCircle = container.querySelector('.home-hero-bg-circle')
 
     /* Design Grid */
@@ -100,7 +100,7 @@ export const homeTransitionAnimation = (type) => {
         .add(() => yPercentOpacityReturn('.hero-image-wrapper'), 3.75 - delay) // 3.75
         .add(() => xPercentOpacityReturn('.home-h1'), 4 - delay) // 4
         .add(() => xPercentOpacityReturn('.home-hero-paragraph'), 4.25 - delay)
-        .add(() => xPercentOpacityReturn('.btn_light'), 4.5 - delay)
+        .add(() => xPercentOpacityReturn('.button_light'), 4.5 - delay)
 
         .add(() => xPercentOpacityReturn('div.home-grid-card-large'), 4.7 - delay)
         .add(() => xPercentOpacityReturn('div.home-grid-card-small.is-appdesign'), 5 - delay)

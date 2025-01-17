@@ -1,7 +1,7 @@
 export const CONFIG = {
   barbaDebug: false,
   path: './',
-  path: 'https://cdn.jsdelivr.net/gh/blountdj/designo@v32/',
+  path: 'https://cdn.jsdelivr.net/gh/blountdj/designo@v33/',
   // pathAdd: 'src/js/',
   // jsFolder: '',
   // jsFolder: '',
@@ -14,7 +14,7 @@ export const CONFIG = {
   cssFolder: 'dist/',
   // cssFolder: 'src/',
   // jsPostFix: '',
-  cssPath: 'https://cdn.jsdelivr.net/gh/blountdj/designo@v32/',
+  cssPath: 'https://cdn.jsdelivr.net/gh/blountdj/designo@v33/',
   // cssPath: 'https://192.168.1.131:5500/',
   cssPostFix: '.min'
   // cssPostFix: ''
