@@ -1,6 +1,6 @@
 
 export const introLogoFadeIn = () => {
-    const introLogo = document.querySelector('.intro-logo')
+    const introLogo = document.querySelector('.intro-logo__image')
     gsap.to(introLogo, {
         opacity: 1,
         duration: 2.5,
@@ -98,7 +98,7 @@ export const fadeIn = (elem) => {
 export const introOverlayFadeIn = () => {
     return new Promise((resolve) => {
         // gsap.set('.transition__column', {scaleX: 0})
-        gsap.set('.intro-logo', { opacity: 0 })
+        gsap.set('.intro-logo__image', { opacity: 0 })
         gsap.to(['.intro-overlay', '.transition'], {
             autoAlpha: 1,
             duration: 0.6,

@@ -1,6 +1,6 @@
 // console.log('contactAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v36/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v37/dist/js/config.min.js";
 
 const {
     navBarLinksFadeIn,
@@ -14,7 +14,7 @@ const {
 
 export const webDesignIntroInit = (container) => {
     // console.log('webDesignIntroInit')
-    // const introLogo = document.querySelector('.intro-logo')
+    // const introLogo = document.querySelector('.intro-logo__image')
 
     return new Promise((resolve) => {
         /* Nav Bar */

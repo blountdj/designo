@@ -1,6 +1,6 @@
 // console.log('barbaInit.js loaded')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v36/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v37/dist/js/config.min.js";
 
 // const { contactFormInit } = await import(`${CONFIG.path}${CONFIG.jsFolder}contact-form.js`)
 
@@ -250,7 +250,7 @@ const homeIntroInit = (container) => {
     // console.log('homeIntroInit')
 
     /* Intro Logo */
-    const introLogo = document.querySelector('.intro-logo')
+    const introLogo = document.querySelector('.intro-logo__image')
 
     /* Navbar */
     const navBarLinks = document.querySelectorAll('.nav-menu__link')
@@ -260,15 +260,15 @@ const homeIntroInit = (container) => {
     /* Hero Section */
     const heroSection = container.querySelector('.home-section__hero')
     const heroImageWrapper = container.querySelector('.home-hero__image-wrapper')
-    const homeH1 = container.querySelector('..home-hero__heading')
+    const homeH1 = container.querySelector('.home-hero__heading')
     const homeHeroParagraph = container.querySelector('.home-hero__paragraph')
-    const homeHeroBtn = container.querySelector('.btn-wrapper')
+    const homeHeroBtn = container.querySelector('.btn--light')
     const homeHeroBgCircle = container.querySelector('.home-hero__bg-circle')
 
     /* Design Grid */
     // const designGrid = container.querySelector('div.home_section_grid')
-    const designGridCardLarge = container.querySelector('.div.home-grid__card--large')
-    const designGridCardSmall = container.querySelectorAll('.div.home-grid__card--small')
+    const designGridCardLarge = container.querySelector('div.home-grid__card--large')
+    const designGridCardSmall = container.querySelectorAll('div.home-grid__card--small')
 
 
     gsap.set([introLogo, heroImageWrapper, homeH1, homeHeroParagraph, homeHeroBtn,
@@ -330,13 +330,13 @@ const homeTransitionAnimation = (type) => {
         .add(() => navBarLinksFadeIn(), 3.0 - delay) // 3.0
         .add(() => xPercentOpacityReturn('.home-hero__bg-circle'), 3.5 - delay) // 3.5
         .add(() => yPercentOpacityReturn('.home-hero__image-wrapper'), 3.75 - delay) // 3.75
-        .add(() => xPercentOpacityReturn('..home-hero__heading'), 4 - delay) // 4
+        .add(() => xPercentOpacityReturn('.home-hero__heading'), 4 - delay) // 4
         .add(() => xPercentOpacityReturn('.home-hero__paragraph'), 4.25 - delay)
-        .add(() => xPercentOpacityReturn('.btn-wrapper'), 4.5 - delay)
+        .add(() => xPercentOpacityReturn('.btn--light'), 4.5 - delay)
 
-        .add(() => xPercentOpacityReturn('.div.home-grid__card--large'), 4.7 - delay)
-        .add(() => xPercentOpacityReturn('.div.home-grid__card--small.is-appdesign'), 5 - delay)
-        .add(() => xPercentOpacityReturn('.div.home-grid__card--small.is-graphicdesign'), 4.85 - delay)
+        .add(() => xPercentOpacityReturn('div.home-grid__card--large'), 4.7 - delay)
+        .add(() => xPercentOpacityReturn('div.home-grid__card--small.is-appdesign'), 5 - delay)
+        .add(() => xPercentOpacityReturn('div.home-grid__card--small.is-graphicdesign'), 4.85 - delay)
 }
 
 // const { aboutIntroInit, aboutIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}aboutAnimations.js`);
@@ -421,7 +421,7 @@ const aboutIntroAnimation = () => {
 
 const locationsIntroInit = (container) => {
     // console.log('locationsIntroInit')
-    // const introLogo = document.querySelector('.intro-logo')
+    // const introLogo = document.querySelector('.intro-logo__image')
 
     /* Nav Bar */
     const navBarLinks = document.querySelectorAll('.nav-menu__link')
@@ -748,7 +748,7 @@ const graphicDesignIntroAnimation = () => {
 
 const webDesignIntroInit = (container) => {
     // console.log('webDesignIntroInit')
-    // const introLogo = document.querySelector('.intro-logo')
+    // const introLogo = document.querySelector('.intro-logo__image')
 
     return new Promise((resolve) => {
         /* Nav Bar */
@@ -974,7 +974,7 @@ function removeCssFilesFromBody(cssFiles) {
 // } = await import(`${CONFIG.path}${CONFIG.jsFolder}commonAnimations.js`);
 
 const introLogoFadeIn = () => {
-    const introLogo = document.querySelector('.intro-logo')
+    const introLogo = document.querySelector('.intro-logo__image')
     gsap.to(introLogo, {
         opacity: 1,
         duration: 2.5,
@@ -1072,7 +1072,7 @@ const fadeIn = (elem) => {
 const introOverlayFadeIn = () => {
     return new Promise((resolve) => {
         // gsap.set('.transition__column', {scaleX: 0})
-        gsap.set('.intro-logo', { opacity: 0 })
+        gsap.set('.intro-logo__image', { opacity: 0 })
         gsap.to(['.intro-overlay', '.transition'], {
             autoAlpha: 1,
             duration: 0.6,

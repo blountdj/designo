@@ -1,6 +1,6 @@
 // console.log('homeAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v36/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v37/dist/js/config.min.js";
 
 const {
     introLogoFadeIn,
@@ -17,7 +17,7 @@ export const homeIntroInit = (container) => {
     // console.log('homeIntroInit')
 
     /* Intro Logo */
-    const introLogo = document.querySelector('.intro-logo__image')
+    const introLogo = document.querySelector('.intro-logo__image__image')
 
     /* Navbar */
     const navBarLinks = document.querySelectorAll('.nav-menu__link')
