@@ -1,6 +1,6 @@
 // console.log('barbaInit.js loaded')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v37/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v38/dist/js/config.min.js";
 
 // const { contactFormInit } = await import(`${CONFIG.path}${CONFIG.jsFolder}contact-form.js`)
 
@@ -262,7 +262,7 @@ const homeIntroInit = (container) => {
     const heroImageWrapper = container.querySelector('.home-hero__image-wrapper')
     const homeH1 = container.querySelector('.home-hero__heading')
     const homeHeroParagraph = container.querySelector('.home-hero__paragraph')
-    const homeHeroBtn = container.querySelector('.btn--light')
+    const homeHeroBtn = container.querySelector('.button--light')
     const homeHeroBgCircle = container.querySelector('.home-hero__bg-circle')
 
     /* Design Grid */
@@ -332,7 +332,7 @@ const homeTransitionAnimation = (type) => {
         .add(() => yPercentOpacityReturn('.home-hero__image-wrapper'), 3.75 - delay) // 3.75
         .add(() => xPercentOpacityReturn('.home-hero__heading'), 4 - delay) // 4
         .add(() => xPercentOpacityReturn('.home-hero__paragraph'), 4.25 - delay)
-        .add(() => xPercentOpacityReturn('.btn--light'), 4.5 - delay)
+        .add(() => xPercentOpacityReturn('.button--light'), 4.5 - delay)
 
         .add(() => xPercentOpacityReturn('div.home-grid__card--large'), 4.7 - delay)
         .add(() => xPercentOpacityReturn('div.home-grid__card--small.is-appdesign'), 5 - delay)
@@ -350,8 +350,8 @@ const aboutIntroInit = (container) => {
     const navBar = document.querySelector('div.navbar.w-nav')
 
     /* Hero Section */
-    const heroSection = container.querySelector('.about__section_hero')
-    // const heroSectionMask = container.querySelector('.about-hero-mask1')
+    const heroSection = container.querySelector('.about__section-hero')
+    // const heroSectionMask = container.querySelector('.about-hero-mask')
     const heroH1 = container.querySelector('.about__heading')
     const heroParagraph = container.querySelector('.about__hero-text')
     const heroBgCircle = container.querySelector('.about__hero-bg-circle')
@@ -397,7 +397,7 @@ const aboutIntroAnimation = () => {
 
     gsap.timeline()
         .add(() => transitionAnimationReset(), 0)
-        .add(() => scaleTo1('.about__section_hero'), 0)
+        .add(() => scaleTo1('.about__section-hero'), 0)
 
         .add(() => navBarLinksFadeIn(), 0 + delay)
         .add(gsap.set('div.navbar.w-nav', { opacity: 1, zIndex: 1000 }), 0 + delay)
@@ -406,7 +406,7 @@ const aboutIntroAnimation = () => {
         .add(() => xPercentOpacityReturn('.about__heading'), 1.1 + delay)
         .add(() => xPercentOpacityReturn('.about__hero-text'), 1.25 + delay)
 
-        .add(() => unMaskToLeft('.about-hero-mask1'), 1.75 + delay)
+        .add(() => unMaskToLeft('.about-hero-mask'), 1.75 + delay)
 
         .add(() => fadeIn('.about-worldclass_section_hero'), 1.9 + delay)
 

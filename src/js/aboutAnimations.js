@@ -1,6 +1,6 @@
 // console.log('aboutAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v37/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v38/dist/js/config.min.js";
 
 const {
     navBarLinksFadeIn,
@@ -23,8 +23,8 @@ export const aboutIntroInit = (container) => {
     const navBar = document.querySelector('div.navbar.w-nav')
 
     /* Hero Section */
-    const heroSection = container.querySelector('.about__section_hero')
-    // const heroSectionMask = container.querySelector('.about-hero-mask1')
+    const heroSection = container.querySelector('.about__section-hero')
+    // const heroSectionMask = container.querySelector('.about-hero-mask')
     const heroH1 = container.querySelector('.about__heading')
     const heroParagraph = container.querySelector('.about__hero-text')
     const heroBgCircle = container.querySelector('.about__hero-bg-circle')
@@ -70,7 +70,7 @@ export const aboutIntroAnimation = () => {
 
     gsap.timeline()
         .add(() => transitionAnimationReset(), 0)
-        .add(() => scaleTo1('.about__section_hero'), 0)
+        .add(() => scaleTo1('.about__section-hero'), 0)
 
         .add(() => navBarLinksFadeIn(), 0 + delay)
         .add(gsap.set('div.navbar.w-nav', { opacity: 1, zIndex: 1000 }), 0 + delay)
@@ -79,7 +79,7 @@ export const aboutIntroAnimation = () => {
         .add(() => xPercentOpacityReturn('.about__heading'), 1.1 + delay)
         .add(() => xPercentOpacityReturn('.about__hero-text'), 1.25 + delay)
 
-        .add(() => unMaskToLeft('.about-hero-mask1'), 1.75 + delay)
+        .add(() => unMaskToLeft('.about-hero-mask'), 1.75 + delay)
 
         .add(() => fadeIn('.about-worldclass_section_hero'), 1.9 + delay)
 
