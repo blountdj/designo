@@ -1,6 +1,6 @@
 // console.log('barbaInit.js loaded')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v34/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v35/dist/js/config.min.js";
 
 // const { contactFormInit } = await import(`${CONFIG.path}${CONFIG.jsFolder}contact-form.js`)
 
@@ -1071,7 +1071,7 @@ const fadeIn = (elem) => {
 
 const introOverlayFadeIn = () => {
     return new Promise((resolve) => {
-        // gsap.set('.transition_column', {scaleX: 0})
+        // gsap.set('.transition__column', {scaleX: 0})
         gsap.set('.intro-logo', { opacity: 0 })
         gsap.to(['.intro-overlay', '.transition'], {
             autoAlpha: 1,
@@ -1085,7 +1085,7 @@ const introOverlayFadeIn = () => {
 
 /* ######### page-column-transition */
 const tlColumnsAnimation = gsap.timeline({ paused: true, defaults: { ease: 'power4inOut' } });
-tlColumnsAnimation.to('.transition_column', {
+tlColumnsAnimation.to('.transition__column', {
     duration: 1.0,
     scaleX: 2,
     stagger: 0.025,
@@ -1109,7 +1109,7 @@ const transitionAnimationReset = () => {
     // console.log('transitionAnimationReset')
     gsap.set('.intro-overlay', { autoAlpha: 0 })
     gsap.set('.transition', { autoAlpha: 0 })
-    gsap.set('.transition_column', { scaleX: 0 })
+    gsap.set('.transition__column', { scaleX: 0 })
     animationColumnsLeave()
 }
 
