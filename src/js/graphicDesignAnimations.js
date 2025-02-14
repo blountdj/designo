@@ -1,5 +1,5 @@
 // console.log('contactAnimations.js')
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v33/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v34/dist/js/config.min.js";
 
 
 const {
@@ -17,8 +17,8 @@ export const graphicDesignIntroInit = (container) => {
 
     return new Promise((resolve) => {
         /* Nav Bar */
-        const navBarLinks = document.querySelectorAll('.nav-link')
-        const navBarLogo = document.querySelector('.link-block > img')
+        const navBarLinks = document.querySelectorAll('.nav-menu__link')
+        const navBarLogo = document.querySelector('.navbar__link-block > img')
         const navBar = document.querySelector('div.navbar.w-nav')
 
         /* Hero Section */

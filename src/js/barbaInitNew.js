@@ -1,6 +1,6 @@
 // console.log('barbaInit.js loaded')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v33/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v34/dist/js/config.min.js";
 
 // const { contactFormInit } = await import(`${CONFIG.path}${CONFIG.jsFolder}contact-form.js`)
 
@@ -253,8 +253,8 @@ const homeIntroInit = (container) => {
     const introLogo = document.querySelector('.intro-logo')
 
     /* Navbar */
-    const navBarLinks = document.querySelectorAll('.nav-link')
-    const navBarLogo = document.querySelector('.link-block > img')
+    const navBarLinks = document.querySelectorAll('.nav-menu__link')
+    const navBarLogo = document.querySelector('.navbar__link-block > img')
     const navBar = document.querySelector('div.navbar.w-nav')
 
     /* Hero Section */
@@ -345,20 +345,20 @@ const aboutIntroInit = (container) => {
     // console.log('aboutIntroInit')
 
     /* Nav Bar */
-    const navBarLinks = document.querySelectorAll('.nav-link')
-    const navBarLogo = document.querySelector('.link-block > img')
+    const navBarLinks = document.querySelectorAll('.nav-menu__link')
+    const navBarLogo = document.querySelector('.navbar__link-block > img')
     const navBar = document.querySelector('div.navbar.w-nav')
 
     /* Hero Section */
-    const heroSection = container.querySelector('.about_section_hero')
+    const heroSection = container.querySelector('.about__section_hero')
     // const heroSectionMask = container.querySelector('.about-hero-mask1')
-    const heroH1 = container.querySelector('.about-h1')
-    const heroParagraph = container.querySelector('.about-hero-text')
-    const heroBgCircle = container.querySelector('.about-hero-bg-circle')
+    const heroH1 = container.querySelector('.about__heading')
+    const heroParagraph = container.querySelector('.about__hero-text')
+    const heroBgCircle = container.querySelector('.about__hero-bg-circle')
 
     /* World Class Section */
     const wcSectionWrapper = container.querySelector('.about-worldclass_section_hero')
-    const wcH2 = container.querySelector('.about_worldclass_h2')
+    const wcH2 = container.querySelector('.about-worldclass__heading')
     const wcText = container.querySelector('.about-worldclass-text')
     const wcBgWrapper = container.querySelector('.about_worldclass_bg_wrapper')
 
@@ -397,24 +397,24 @@ const aboutIntroAnimation = () => {
 
     gsap.timeline()
         .add(() => transitionAnimationReset(), 0)
-        .add(() => scaleTo1('.about_section_hero'), 0)
+        .add(() => scaleTo1('.about__section_hero'), 0)
 
         .add(() => navBarLinksFadeIn(), 0 + delay)
         .add(gsap.set('div.navbar.w-nav', { opacity: 1, zIndex: 1000 }), 0 + delay)
-        .add(() => xPercentOpacityReturn('.about-hero-bg-circle'), 0.75 + delay)
+        .add(() => xPercentOpacityReturn('.about__hero-bg-circle'), 0.75 + delay)
 
-        .add(() => xPercentOpacityReturn('.about-h1'), 1.1 + delay)
-        .add(() => xPercentOpacityReturn('.about-hero-text'), 1.25 + delay)
+        .add(() => xPercentOpacityReturn('.about__heading'), 1.1 + delay)
+        .add(() => xPercentOpacityReturn('.about__hero-text'), 1.25 + delay)
 
         .add(() => unMaskToLeft('.about-hero-mask1'), 1.75 + delay)
 
         .add(() => fadeIn('.about-worldclass_section_hero'), 1.9 + delay)
 
         .add(() => yPercentOpacityReturn('.about_worldclass_bg_wrapper'), 2.1 + delay)
-        .add(() => xPercentOpacityReturn('.about_worldclass_h2'), 2.3 + delay)
+        .add(() => xPercentOpacityReturn('.about-worldclass__heading'), 2.3 + delay)
         .add(() => xPercentOpacityReturn('.about-worldclass-text'), 2.5 + delay)
 
-        .add(() => unMaskToRight('.about-worldclass-mask'), 2.85 + delay)
+        .add(() => unMaskToRight('.about-worldclass__mask'), 2.85 + delay)
 }
 
 // const { locationsIntroInit, locationsIntroAnimation } = await import(`${CONFIG.path}${CONFIG.jsFolder}locationsAnimations.js`);
@@ -424,8 +424,8 @@ const locationsIntroInit = (container) => {
     // const introLogo = document.querySelector('.intro-logo')
 
     /* Nav Bar */
-    const navBarLinks = document.querySelectorAll('.nav-link')
-    const navBarLogo = document.querySelector('.link-block > img')
+    const navBarLinks = document.querySelectorAll('.nav-menu__link')
+    const navBarLogo = document.querySelector('.navbar__link-block > img')
     const navBar = document.querySelector('div.navbar.w-nav')
 
     /* Main Section */
@@ -594,8 +594,8 @@ const contactIntroInit = () => {
     // console.log('contactIntroInit')
 
     /* Nav Bar */
-    const navBarLinks = document.querySelectorAll('.nav-link')
-    const navBarLogo = document.querySelector('.link-block > img')
+    const navBarLinks = document.querySelectorAll('.nav-menu__link')
+    const navBarLogo = document.querySelector('.navbar__link-block > img')
     const navBar = document.querySelector('div.navbar.w-nav')
 
     /* Hero Section */
@@ -674,8 +674,8 @@ const graphicDesignIntroInit = (container) => {
 
     return new Promise((resolve) => {
         /* Nav Bar */
-        const navBarLinks = document.querySelectorAll('.nav-link')
-        const navBarLogo = document.querySelector('.link-block > img')
+        const navBarLinks = document.querySelectorAll('.nav-menu__link')
+        const navBarLogo = document.querySelector('.navbar__link-block > img')
         const navBar = document.querySelector('div.navbar.w-nav')
 
         /* Hero Section */
@@ -752,8 +752,8 @@ const webDesignIntroInit = (container) => {
 
     return new Promise((resolve) => {
         /* Nav Bar */
-        const navBarLinks = document.querySelectorAll('.nav-link')
-        const navBarLogo = document.querySelector('.link-block > img')
+        const navBarLinks = document.querySelectorAll('.nav-menu__link')
+        const navBarLogo = document.querySelector('.navbar__link-block > img')
         const navBar = document.querySelector('div.navbar.w-nav')
 
         /* Hero Section */
@@ -830,8 +830,8 @@ const appDesignIntroInit = (container) => {
 
     return new Promise((resolve) => {
         /* Nav Bar */
-        const navBarLinks = document.querySelectorAll('.nav-link')
-        const navBarLogo = document.querySelector('.link-block > img')
+        const navBarLinks = document.querySelectorAll('.nav-menu__link')
+        const navBarLogo = document.querySelector('.navbar__link-block > img')
         const navBar = document.querySelector('div.navbar.w-nav')
 
         /* Hero Section */
@@ -983,8 +983,8 @@ const introLogoFadeIn = () => {
 }
 
 const navBarLinksFadeIn = () => {
-    const navBarLinks = document.querySelectorAll('.nav-link')
-    const navBarLogo = document.querySelector('.link-block > img')
+    const navBarLinks = document.querySelectorAll('.nav-menu__link')
+    const navBarLogo = document.querySelector('.navbar__link-block > img')
 
     gsap.to([navBarLogo, ...navBarLinks], {
         opacity: 1,

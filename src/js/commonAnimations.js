@@ -9,8 +9,8 @@ export const introLogoFadeIn = () => {
 }
 
 export const navBarLinksFadeIn = () => {
-    const navBarLinks = document.querySelectorAll('.nav-link')
-    const navBarLogo = document.querySelector('.link-block > img')
+    const navBarLinks = document.querySelectorAll('.nav-menu__link')
+    const navBarLogo = document.querySelector('.navbar__link-block > img')
 
     gsap.to([navBarLogo, ...navBarLinks], {
         opacity: 1,
@@ -76,7 +76,7 @@ export const unMaskToRight = (elem) => {
     })
 }
 
-export const scaleTo1 = (elem, staggered=false) => {
+export const scaleTo1 = (elem, staggered = false) => {
     gsap.to(elem, {
         scale: 1.0,
         opacity: 1,
@@ -98,7 +98,7 @@ export const fadeIn = (elem) => {
 export const introOverlayFadeIn = () => {
     return new Promise((resolve) => {
         // gsap.set('.transition_column', {scaleX: 0})
-        gsap.set('.intro-logo', {opacity: 0})
+        gsap.set('.intro-logo', { opacity: 0 })
         gsap.to(['.intro-overlay', '.transition'], {
             autoAlpha: 1,
             duration: 0.6,
@@ -110,7 +110,7 @@ export const introOverlayFadeIn = () => {
 
 
 /* ######### page-column-transition */
-const tlColumnsAnimation = gsap.timeline({paused: true, defaults: {ease: 'power4inOut'}});
+const tlColumnsAnimation = gsap.timeline({ paused: true, defaults: { ease: 'power4inOut' } });
 tlColumnsAnimation.to('.transition_column', {
     duration: 1.0,
     scaleX: 2,
@@ -133,8 +133,8 @@ export const animationColumnsLeave = () => {
 
 export const transitionAnimationReset = () => {
     // console.log('transitionAnimationReset')
-    gsap.set('.intro-overlay', {autoAlpha: 0})
-    gsap.set('.transition', {autoAlpha: 0})
-    gsap.set('.transition_column', {scaleX: 0})
+    gsap.set('.intro-overlay', { autoAlpha: 0 })
+    gsap.set('.transition', { autoAlpha: 0 })
+    gsap.set('.transition_column', { scaleX: 0 })
     animationColumnsLeave()
 }

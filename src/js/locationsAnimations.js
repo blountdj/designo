@@ -1,6 +1,6 @@
 // console.log('locationsAnimations.js')
 
-import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v33/dist/js/config.min.js";
+import { CONFIG } from "https://cdn.jsdelivr.net/gh/blountdj/designo@v34/dist/js/config.min.js";
 
 const {
     navBarLinksFadeIn,
@@ -14,8 +14,8 @@ export const locationsIntroInit = (container) => {
     // const introLogo = document.querySelector('.intro-logo')
 
     /* Nav Bar */
-    const navBarLinks = document.querySelectorAll('.nav-link')
-    const navBarLogo = document.querySelector('.link-block > img')
+    const navBarLinks = document.querySelectorAll('.nav-menu__link')
+    const navBarLogo = document.querySelector('.navbar__link-block > img')
     const navBar = document.querySelector('div.navbar.w-nav')
 
     /* Main Section */
